@@ -1,0 +1,27 @@
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"smj-beitrag","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group smj-beitrag" style="padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--60)">
+	<!-- wp:smj/brotkruemel {"align":"wide"} /-->
+
+	<!-- wp:group {"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group">
+		<!-- wp:post-date {"format":"j. F Y"} /-->
+		<!-- wp:post-title {"level":1,"style":{"typography":{"fontSize":"clamp(2.2rem, 5vw, 3.25rem)"}}} /-->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:post-featured-image {"align":"wide","style":{"border":{"radius":"24px"}}} /-->
+
+	<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+
+	<!-- wp:group {"className":"smj-beitrag-nav","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
+	<div class="wp-block-group smj-beitrag-nav">
+		<!-- wp:post-navigation-link {"type":"previous","label":"Älterer Beitrag","showTitle":true} /-->
+		<!-- wp:post-navigation-link {"label":"Neuerer Beitrag","showTitle":true} /-->
+	</div>
+	<!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->

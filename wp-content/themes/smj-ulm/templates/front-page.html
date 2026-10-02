@@ -1,0 +1,115 @@
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"smj-start","style":{"spacing":{"margin":{"top":"0"},"blockGap":"0"}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group smj-start" style="margin-top:0">
+
+	<!-- wp:group {"align":"full","className":"smj-hero","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"backgroundColor":"navy","textColor":"white","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull smj-hero has-white-color has-navy-background-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50)">
+		<!-- wp:columns {"verticalAlignment":"center","align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|50"}}}} -->
+		<div class="wp-block-columns alignwide are-vertically-aligned-center">
+			<!-- wp:column {"verticalAlignment":"center","width":"52%"} -->
+			<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:52%">
+				<!-- wp:paragraph {"className":"smj-eyebrow smj-eyebrow--hell"} -->
+				<p class="smj-eyebrow smj-eyebrow--hell">Schönstatt-Mannesjugend · Ulm · Alb · Donau</p>
+				<!-- /wp:paragraph -->
+
+				<!-- wp:heading {"level":1,"textColor":"white","style":{"typography":{"lineHeight":"1.02"}}} -->
+				<h1 class="wp-block-heading has-white-color has-text-color" style="line-height:1.02">Glaube, Gemeinschaft und jede Menge Abenteuer.</h1>
+				<!-- /wp:heading -->
+
+				<!-- wp:paragraph {"className":"smj-hero__text","fontSize":"large"} -->
+				<p class="smj-hero__text has-large-font-size">Gruppenstunden in deinem Ort, Wochenenden mit anderen Jungs und jeden Sommer unser Zeltlager. Komm vorbei!</p>
+				<!-- /wp:paragraph -->
+
+				<!-- wp:buttons -->
+				<div class="wp-block-buttons">
+					<!-- wp:button {"backgroundColor":"white","textColor":"navy","className":"smj-button-hell"} -->
+					<div class="wp-block-button smj-button-hell"><a class="wp-block-button__link has-navy-color has-white-background-color has-text-color has-background wp-element-button" href="#anmeldungen">Zu den Anmeldungen</a></div>
+					<!-- /wp:button -->
+
+					<!-- wp:button {"className":"is-style-outline smj-button-outline-hell"} -->
+					<div class="wp-block-button is-style-outline smj-button-outline-hell"><a class="wp-block-button__link wp-element-button" href="#termine">Nächste Termine</a></div>
+					<!-- /wp:button -->
+				</div>
+				<!-- /wp:buttons -->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column {"verticalAlignment":"center"} -->
+			<div class="wp-block-column is-vertically-aligned-center">
+				<!-- wp:smj/diashow /-->
+			</div>
+			<!-- /wp:column -->
+		</div>
+		<!-- /wp:columns -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:smj/aktionen {"align":"wide"} /-->
+
+	<!-- wp:columns {"align":"wide","className":"smj-news-termine","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|40"},"blockGap":{"left":"var:preset|spacing|50"}}}} -->
+	<div class="wp-block-columns alignwide smj-news-termine" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--40)">
+		<!-- wp:column {"width":"66%","className":"smj-news"} -->
+		<div class="wp-block-column smj-news" style="flex-basis:66%">
+			<!-- wp:group {"className":"smj-abschnitt-kopf","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"bottom"}} -->
+			<div class="wp-block-group smj-abschnitt-kopf">
+				<!-- wp:heading {"anchor":"news"} -->
+				<h2 class="wp-block-heading" id="news">Aus der Abteilung</h2>
+				<!-- /wp:heading -->
+
+				<!-- wp:paragraph {"className":"smj-mehr"} -->
+				<p class="smj-mehr"><a href="/category/news/">Alle News →</a></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:group -->
+
+			<!-- wp:query {"queryId":1,"query":{"perPage":4,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"className":"smj-karten"} -->
+			<div class="wp-block-query smj-karten">
+				<!-- wp:post-template {"layout":{"type":"grid","columnCount":2}} -->
+					<!-- wp:group {"className":"smj-karte","style":{"spacing":{"blockGap":"0"}},"layout":{"type":"default"}} -->
+					<div class="wp-block-group smj-karte">
+						<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/10","className":"smj-karte__bild"} /-->
+
+						<!-- wp:group {"className":"smj-karte__body","layout":{"type":"default"}} -->
+						<div class="wp-block-group smj-karte__body">
+							<!-- wp:post-date {"format":"j. F Y"} /-->
+							<!-- wp:post-title {"level":3,"isLink":true,"className":"smj-karte__titel"} /-->
+							<!-- wp:post-excerpt {"excerptLength":24,"moreText":""} /-->
+						</div>
+						<!-- /wp:group -->
+					</div>
+					<!-- /wp:group -->
+				<!-- /wp:post-template -->
+
+				<!-- wp:query-no-results -->
+					<!-- wp:paragraph -->
+					<p>Noch keine Beiträge.</p>
+					<!-- /wp:paragraph -->
+				<!-- /wp:query-no-results -->
+			</div>
+			<!-- /wp:query -->
+		</div>
+		<!-- /wp:column -->
+
+		<!-- wp:column {"className":"smj-termine-spalte"} -->
+		<div class="wp-block-column smj-termine-spalte">
+			<!-- wp:heading {"anchor":"termine"} -->
+			<h2 class="wp-block-heading" id="termine">Nächste Termine</h2>
+			<!-- /wp:heading -->
+
+			<!-- wp:smj/termine {"anzahl":5,"alleLink":"/termine/"} /-->
+
+			<!-- wp:paragraph {"className":"smj-linkkarte"} -->
+			<p class="smj-linkkarte"><a href="https://www.mjf-ulm.de">Zur Mädchenjugend</a></p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:column -->
+	</div>
+	<!-- /wp:columns -->
+
+	<!-- wp:smj/countdown {"oberzeile":"Zeltlager 2027","titel":"Der Countdown läuft","buttonText":"Infos zum Zeltlager","buttonLink":"/zeltlager/","align":"wide"} /-->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->

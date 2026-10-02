@@ -1,0 +1,46 @@
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--60)">
+	<!-- wp:smj/brotkruemel {"align":"wide"} /-->
+
+	<!-- wp:query-title {"type":"archive","showPrefix":false,"align":"wide"} /-->
+
+	<!-- wp:term-description {"align":"wide","textColor":"muted"} /-->
+
+	<!-- wp:search {"label":"Suche","showLabel":false,"placeholder":"Beiträge durchsuchen …","buttonText":"Suchen","align":"wide","className":"smj-suche"} /-->
+
+	<!-- wp:query {"queryId":2,"query":{"perPage":12,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":true},"align":"wide","className":"smj-karten"} -->
+	<div class="wp-block-query alignwide smj-karten">
+		<!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+			<!-- wp:group {"className":"smj-karte","style":{"spacing":{"blockGap":"0"}},"layout":{"type":"default"}} -->
+			<div class="wp-block-group smj-karte">
+				<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/10","className":"smj-karte__bild"} /-->
+				<!-- wp:group {"className":"smj-karte__body","layout":{"type":"default"}} -->
+				<div class="wp-block-group smj-karte__body">
+					<!-- wp:post-date {"format":"j. F Y"} /-->
+					<!-- wp:post-title {"level":2,"isLink":true,"className":"smj-karte__titel"} /-->
+					<!-- wp:post-excerpt {"excerptLength":24,"moreText":""} /-->
+				</div>
+				<!-- /wp:group -->
+			</div>
+			<!-- /wp:group -->
+		<!-- /wp:post-template -->
+
+		<!-- wp:query-pagination {"paginationArrow":"arrow","layout":{"type":"flex","justifyContent":"center"}} -->
+			<!-- wp:query-pagination-previous {"label":"Neuere"} /-->
+			<!-- wp:query-pagination-numbers /-->
+			<!-- wp:query-pagination-next {"label":"Ältere"} /-->
+		<!-- /wp:query-pagination -->
+
+		<!-- wp:query-no-results -->
+			<!-- wp:paragraph -->
+			<p>Hier gibt es noch keine Beiträge.</p>
+			<!-- /wp:paragraph -->
+		<!-- /wp:query-no-results -->
+	</div>
+	<!-- /wp:query -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
