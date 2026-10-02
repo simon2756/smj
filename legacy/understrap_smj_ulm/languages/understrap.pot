@@ -1,0 +1,578 @@
+# Copyright (C) 2026 Felix Betz
+# This file is distributed under the GNU General Public License v3 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Understrap styled for SMJ Ulm 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/WordpressUntertrapSmj\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-03-07T17:22:14+01:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: understrap\n"
+
+#. Theme Name of the theme
+#: style.css
+msgid "Understrap styled for SMJ Ulm"
+msgstr ""
+
+#. Theme URI of the theme
+#: style.css
+msgid "https://smj-ulm.de"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "The renowned WordPress starter theme framework that combined Underscores and Bootstrap. Trusted by more than 100,000 developers for building handcrafted, custom WordPress sites."
+msgstr ""
+
+#. Author of the theme
+#: style.css
+msgid "Felix Betz"
+msgstr ""
+
+#. Author URI of the theme
+#: style.css
+msgid "https://github.com/FelixBetz"
+msgstr ""
+
+#: 404.php:30
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:36
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: 404.php:46
+msgid "Most Used Categories"
+msgstr ""
+
+#. translators: %1$s: smiley
+#: 404.php:69
+#, php-format
+msgid "Try looking in the monthly archives. %1$s"
+msgstr ""
+
+#. translators: %s: author name
+#: author.php:44
+#, php-format
+msgctxt "Avatar alt"
+msgid "Profile picture of %s"
+msgstr ""
+
+#: author.php:54
+msgid "Website"
+msgstr ""
+
+#. translators: %s: author name
+#: author.php:65
+#, php-format
+msgid "About %s"
+msgstr ""
+
+#. translators: %s: author name
+#: author.php:79
+#, php-format
+msgid "Posts by %s"
+msgstr ""
+
+#. translators: %s: post title
+#: comments.php:36
+#, php-format
+msgctxt "comments title"
+msgid "One thought on &ldquo;%s&rdquo;"
+msgstr ""
+
+#. translators: 1: number of comments, 2: post title
+#: comments.php:43
+#, php-format
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: global-templates/navbar-collapse-bootstrap5.php:18
+#: global-templates/navbar-offcanvas-bootstrap5.php:18
+msgid "Main Navigation"
+msgstr ""
+
+#: global-templates/navbar-collapse-bootstrap5.php:34
+msgid "Toggle navigation"
+msgstr ""
+
+#: global-templates/navbar-offcanvas-bootstrap5.php:34
+msgid "Open menu"
+msgstr ""
+
+#: global-templates/navbar-offcanvas-bootstrap5.php:46
+msgid "Close menu"
+msgstr ""
+
+#: header.php:35
+msgid "Skip to content"
+msgstr ""
+
+#: inc/class-wp-bootstrap-navwalker.php:382
+msgid "Add a menu"
+msgstr ""
+
+#: inc/class-wp-bootstrap-navwalker.php:622
+msgid "Startseite"
+msgstr ""
+
+#: inc/custom-comments.php:106
+msgid "Comments are closed."
+msgstr ""
+
+#: inc/custom-header.php:54
+msgid "Default Header Image"
+msgstr ""
+
+#: inc/customizer.php:67
+msgid "Theme Layout Settings"
+msgstr ""
+
+#: inc/customizer.php:69
+msgid "Container width and sidebar defaults"
+msgstr ""
+
+#: inc/customizer.php:90
+msgid "Container Width"
+msgstr ""
+
+#: inc/customizer.php:91
+msgid "Choose between Bootstrap's container and container-fluid"
+msgstr ""
+
+#: inc/customizer.php:95
+msgid "Fixed width container"
+msgstr ""
+
+#: inc/customizer.php:96
+msgid "Full width container"
+msgstr ""
+
+#: inc/customizer.php:118
+msgid "Responsive Navigation Type"
+msgstr ""
+
+#: inc/customizer.php:119
+msgid "Choose between an expanding and collapsing navbar or an offcanvas drawer."
+msgstr ""
+
+#: inc/customizer.php:126
+msgid "Collapse"
+msgstr ""
+
+#: inc/customizer.php:127
+msgid "Offcanvas"
+msgstr ""
+
+#: inc/customizer.php:149
+msgid "Sidebar Positioning"
+msgstr ""
+
+#: inc/customizer.php:150
+msgid "Set sidebar's default position. Can either be: right, left, both or none. Note: this can be overridden on individual pages."
+msgstr ""
+
+#: inc/customizer.php:157
+msgid "Right sidebar"
+msgstr ""
+
+#: inc/customizer.php:158
+msgid "Left sidebar"
+msgstr ""
+
+#: inc/customizer.php:159
+msgid "Left & Right sidebars"
+msgstr ""
+
+#: inc/customizer.php:160
+msgid "No sidebar"
+msgstr ""
+
+#: inc/customizer.php:201
+#: inc/customizer.php:225
+msgid "Countdown"
+msgstr ""
+
+#: inc/customizer.php:203
+msgid "Einstellungen für den Countdown im Footer Bereich"
+msgstr ""
+
+#: inc/customizer.php:226
+msgid "Datum des Countdown"
+msgstr ""
+
+#: inc/customizer.php:252
+msgid "Countdown Label"
+msgstr ""
+
+#: inc/customizer.php:253
+msgid "Text vor dem Countdown"
+msgstr ""
+
+#: inc/customizer.php:279
+#: inc/customizer.php:542
+msgid "Aktiv"
+msgstr ""
+
+#: inc/customizer.php:280
+msgid "Soll der Countdown angezeigt werden"
+msgstr ""
+
+#: inc/customizer.php:298
+msgid "Startseite News"
+msgstr ""
+
+#: inc/customizer.php:300
+msgid "Einstellungen für die News auf der Startseite"
+msgstr ""
+
+#: inc/customizer.php:330
+msgid "Blog Kategorie"
+msgstr ""
+
+#: inc/customizer.php:331
+msgid "Blog Kategorie die auf der Startseite angezeigt"
+msgstr ""
+
+#: inc/customizer.php:356
+msgid "Anzahl Blog Beiträge"
+msgstr ""
+
+#: inc/customizer.php:357
+msgid "Anzahl der Blog Beiträge auf der Startseite."
+msgstr ""
+
+#: inc/customizer.php:386
+msgid "Länge Auzugstext Beitrag"
+msgstr ""
+
+#: inc/customizer.php:387
+msgid "Anzahl der Wörter die bei einer Beitrag als Auzug angezeigt werden ."
+msgstr ""
+
+#: inc/customizer.php:410
+msgid "Werbung (Startseite)"
+msgstr ""
+
+#: inc/customizer.php:412
+msgid "Einstellunge für den Werbe - Jumbotron auf der Startseite"
+msgstr ""
+
+#: inc/customizer.php:436
+msgid "Überschrift"
+msgstr ""
+
+#: inc/customizer.php:463
+msgid "Paragraph"
+msgstr ""
+
+#: inc/customizer.php:464
+msgid "Text des Paragraphs"
+msgstr ""
+
+#: inc/customizer.php:490
+msgid "Button Text"
+msgstr ""
+
+#: inc/customizer.php:515
+msgid "Button Link"
+msgstr ""
+
+#: inc/customizer.php:516
+msgid "Link der beim Button Klick aufgerufen wird (z.B. /online-anmeldung"
+msgstr ""
+
+#: inc/customizer.php:543
+msgid "Soll der Werbe - Jumbotron angezeigt werden?"
+msgstr ""
+
+#: inc/customizer.php:569
+msgid "X-Offset"
+msgstr ""
+
+#: inc/customizer.php:570
+#: inc/customizer.php:600
+msgid "Hintergrund Bild x-Offset (0% bis 100%)"
+msgstr ""
+
+#: inc/customizer.php:599
+msgid "Y-Offset"
+msgstr ""
+
+#: inc/customizer.php:629
+#: inc/customizer.php:630
+msgid "Hintergrundbild"
+msgstr ""
+
+#: inc/editor.php:50
+msgid "Lead Paragraph"
+msgstr ""
+
+#: inc/editor.php:56
+msgctxt "Font size name"
+msgid "Small"
+msgstr ""
+
+#: inc/editor.php:60
+msgid "Blockquote"
+msgstr ""
+
+#: inc/editor.php:66
+msgid "Blockquote Footer"
+msgstr ""
+
+#: inc/editor.php:72
+msgid "Cite"
+msgstr ""
+
+#: inc/hooks.php:30
+msgid "https://wordpress.org/"
+msgstr ""
+
+#. translators: WordPress
+#: inc/hooks.php:33
+#, php-format
+msgid "Proudly powered by %s"
+msgstr ""
+
+#. translators: 1: Theme name, 2: Theme author
+#: inc/hooks.php:38
+#, php-format
+msgid "Theme: %1$s by %2$s."
+msgstr ""
+
+#: inc/hooks.php:40
+msgid "https://understrap.com"
+msgstr ""
+
+#. translators: Theme version
+#: inc/hooks.php:44
+#, php-format
+msgid "Version: %s"
+msgstr ""
+
+#: inc/pagination.php:53
+msgctxt "previous set of posts"
+msgid "&laquo;"
+msgstr ""
+
+#: inc/pagination.php:54
+msgctxt "next set of posts"
+msgid "&raquo;"
+msgstr ""
+
+#: inc/pagination.php:56
+msgid "Posts navigation"
+msgstr ""
+
+#: inc/setup.php:49
+msgid "Primary Menu"
+msgstr ""
+
+#: inc/template-tags.php:41
+msgctxt "post date"
+msgid "Posted on"
+msgstr ""
+
+#: inc/template-tags.php:55
+msgctxt "post author"
+msgid "by"
+msgstr ""
+
+#: inc/template-tags.php:55
+msgctxt "post author"
+msgid "Posted by"
+msgstr ""
+
+#. translators: %s: Tags of current post
+#: inc/template-tags.php:117
+#, php-format
+msgid "Tagged %s"
+msgstr ""
+
+#. translators: %s post title
+#: inc/template-tags.php:136
+#, php-format
+msgid "Leave a comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+
+#: inc/template-tags.php:243
+msgid "Comments navigation"
+msgstr ""
+
+#: inc/template-tags.php:247
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: inc/template-tags.php:253
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#. translators: %s: Name of current post
+#: inc/template-tags.php:272
+#, php-format
+msgid "Edit %s"
+msgstr ""
+
+#: inc/template-tags.php:301
+msgid "Post navigation"
+msgstr ""
+
+#: inc/template-tags.php:305
+msgctxt "Previous post link"
+msgid "<i class=\"fa fa-angle-left\"></i>&nbsp;%title"
+msgstr ""
+
+#: inc/template-tags.php:308
+msgctxt "Next post link"
+msgid "%title&nbsp;<i class=\"fa fa-angle-right\"></i>"
+msgstr ""
+
+#: inc/template-tags.php:331
+msgid "Pages:"
+msgstr ""
+
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:382
+msgid ", "
+msgstr ""
+
+#. translators: Widget area title
+#: inc/widgets.php:272
+msgid "Right Sidebar"
+msgstr ""
+
+#: inc/widgets.php:274
+msgid "Right sidebar widget area"
+msgstr ""
+
+#. translators: Widget area title
+#: inc/widgets.php:285
+msgid "Left Sidebar"
+msgstr ""
+
+#: inc/widgets.php:287
+msgid "Left sidebar widget area"
+msgstr ""
+
+#. translators: Widget area title
+#: inc/widgets.php:298
+msgid "Hero Slider"
+msgstr ""
+
+#: inc/widgets.php:300
+msgid "Hero slider area. Place two or more widgets here and they will slide!"
+msgstr ""
+
+#. translators: Widget area title
+#: inc/widgets.php:311
+msgid "Hero Canvas"
+msgstr ""
+
+#: inc/widgets.php:313
+msgid "Full size canvas hero area for Bootstrap and other custom HTML markup"
+msgstr ""
+
+#. translators: Widget area title
+#: inc/widgets.php:324
+msgid "Top Full"
+msgstr ""
+
+#: inc/widgets.php:326
+msgid "Full top widget with dynamic grid"
+msgstr ""
+
+#. translators: Widget area title
+#: inc/widgets.php:337
+msgid "Footer Full"
+msgstr ""
+
+#: inc/widgets.php:339
+msgid "Full sized footer widget with dynamic grid"
+msgstr ""
+
+#: loop-templates/content-none.php:18
+msgid "Nothing Found"
+msgstr ""
+
+#. translators: 1: Link to WP admin new post page.
+#: loop-templates/content-none.php:30
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: loop-templates/content-none.php:38
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: loop-templates/content-none.php:46
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#. Template Name of the theme
+msgid "Blank Page Template"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Left and Right Sidebar Layout"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Empty Page Template"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Full Width Page"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Left Sidebar Layout"
+msgstr ""
+
+#. Template Name of the theme
+msgid "No Title, Full Width Page"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Right Sidebar Layout"
+msgstr ""
+
+#. translators: %s: query term
+#: search.php:38
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: searchform.php:20
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:22
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr ""
+
+#: searchform.php:23
+msgctxt "submit button"
+msgid "Search"
+msgstr ""
+
+#: sidebar-templates/sidebar-hero.php:28
+msgctxt "carousel control"
+msgid "Previous"
+msgstr ""
+
+#: sidebar-templates/sidebar-hero.php:36
+msgctxt "carousel control"
+msgid "Next"
+msgstr ""
