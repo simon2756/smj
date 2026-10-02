@@ -1,0 +1,29 @@
+<!--
+  Code-Snippet "maedchen-link" (Plugin Code Snippets, Typ html, per Shortcode im Editor eingefügt).
+  Blendet im CF7-Anmeldeformular das Element #maedchen-link ein, sobald bei "Geschlecht" "Mädchen" gewählt ist.
+-->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  const form = document.querySelector('.wpcf7 form');
+  if (!form) return;
+
+  const linkBox = document.getElementById('maedchen-link');
+  const inputs = form.querySelectorAll('input[name="Geschlecht[]"]');
+
+  function updateLink() {
+    const checked = form.querySelector('input[name="Geschlecht[]"]:checked');
+    if (checked && checked.value.trim() === 'Mädchen') {
+      linkBox.style.display = 'block';
+    } else {
+      linkBox.style.display = 'none';
+    }
+  }
+
+  inputs.forEach(input => {
+    input.addEventListener('change', updateLink);
+  });
+
+  updateLink();
+});
+</script>

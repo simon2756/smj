@@ -1,0 +1,102 @@
+    .notification {
+        background-color: #555;
+        color: white;
+        text-decoration: none;
+        padding: 5px 12px 5px 5px;
+        position: relative;
+        display: inline-block;
+        border-radius: 2px;
+        margin-right: 20px; 
+    }
+
+
+
+    .notification .badge {
+        position: absolute;
+        top: -5px;
+        right: -15px;
+
+        padding: 3px 6px;
+        border-radius: 50%;
+        background: #2271b1;
+        color: white;
+    }
+
+    .shortcode{
+        vertical-align:middle; 
+        font-size: 1.1rem;
+    }
+
+    .shortcode-title{
+        font-size: 1.3em;
+        margin-top: 1em;
+        margin-bottom: 0.4em;
+        font-weight: 600;
+    }
+
+    .sub-section{
+        padding-left: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .sync-calendar{
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .sync-calendar label{
+        font-weight: 600;
+    }
+
+    .sync-calender-container{
+        display: flex;
+    }
+
+    #calendar-sync-list label{
+        padding-left: 0px;
+    }
+
+    .log-error{
+        color: red;
+        font-weight: bold;
+    }
+
+
+    .statistic-container{
+        display: flex;
+
+        flex-wrap: wrap;
+    }
+
+  
+
+    .statistic-category ul{
+        padding-left: 10px;
+        list-style: inside;
+    }
+
+    .statistic-category{
+        flex: 25%;
+        margin-bottom: 10px;
+      
+    }
+  
+
+    @media (max-width: 1200px) {
+        .statistic-category {
+            flex:50%;
+        }
+    }
+
+    @media (max-width: 800px) {
+        .statistic-category {
+            flex: 100%;
+        }
+    }
+
+
+
+    .calendars-container ul{
+        padding-left: 10px;
+        list-style: inside;
+    }
