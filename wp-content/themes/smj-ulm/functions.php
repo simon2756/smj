@@ -165,3 +165,17 @@ function smj_theme_galerie_titel( $content, $parsed, $block ) {
 	}
 	return preg_replace( '#(<h[1-6]\b[^>]*>).*?(</h[1-6]>)#s', '$1' . str_replace( '$', '\\$', $inner ) . '$2', $content, 1 );
 }
+
+add_filter( 'render_block_core/paragraph', 'smj_theme_ohne_maedchen_button' );
+
+/**
+ * Der Button "Zur Mädchenjugend" unter den Terminen ist entfallen (der Link steht im Footer).
+ * Wurde die Startseite im Website-Editor schon gespeichert, steckt der Button noch in dieser
+ * gespeicherten Fassung; er wird deshalb auch dort nicht mehr ausgegeben.
+ *
+ * @param string $content Gerenderter Absatz.
+ * @return string
+ */
+function smj_theme_ohne_maedchen_button( $content ) {
+	return false !== strpos( $content, 'smj-linkkarte' ) ? '' : $content;
+}
