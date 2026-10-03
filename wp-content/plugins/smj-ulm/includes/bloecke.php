@@ -117,7 +117,6 @@ function smj_ulm_render_aktionen( $attributes ) {
 	return '<section ' . $wrapper . ' id="anmeldungen">'
 		. '<div class="smj-aktionen__kopf">'
 		. '<div><p class="smj-eyebrow">Jetzt anmelden</p>' . ( $titel ? '<h2 class="smj-aktionen__titel">' . esc_html( $titel ) . '</h2>' : '' ) . '</div>'
-		. '<p class="smj-aktionen__info">Anmeldungen schließen automatisch, sobald die Aktion beginnt. Nach dem Absenden kommt sofort eine Bestätigung per E-Mail.</p>'
 		. '</div>'
 		. '<div class="smj-aktionen__grid">' . $karten . '</div>'
 		. '</section>';

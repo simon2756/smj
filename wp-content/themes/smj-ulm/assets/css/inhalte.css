@@ -175,6 +175,19 @@
 	color: var(--smj-navy);
 }
 
+/* Beitragskarten komplett klickbar: der Link der Überschrift deckt die Karte ab */
+.wp-block-post-content .card .wp-block-post-title a::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+}
+
+.wp-block-post-content .card:focus-within {
+	outline: 3px solid var(--smj-sky);
+	outline-offset: 3px;
+}
+
 /* Abfrage-Raster mit 4 bzw. 3 Spalten responsiv */
 .wp-block-post-content .wp-block-post-template.is-layout-grid {
 	gap: 1.5rem;

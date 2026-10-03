@@ -362,12 +362,6 @@ body {
 	margin: 0.35rem 0 0;
 }
 
-.smj-aktionen__info {
-	margin: 0;
-	max-width: 30rem;
-	color: var(--smj-muted);
-}
-
 .smj-aktionen__grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));
@@ -488,6 +482,27 @@ body {
 	border: 1px solid var(--smj-line);
 	border-radius: var(--smj-radius);
 	transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.smj-karte {
+	position: relative;
+}
+
+/* Die ganze Karte ist klickbar: der Link der Überschrift deckt die Karte ab. */
+.smj-karte__titel a::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+}
+
+.smj-karte:focus-within {
+	outline: 3px solid var(--smj-sky);
+	outline-offset: 3px;
+}
+
+.smj-karte__titel a:focus-visible {
+	outline: none;
 }
 
 .smj-karte:hover {
@@ -790,12 +805,6 @@ body {
 
 .smj-box--hinweis li + li {
 	margin-top: 0.4rem;
-}
-
-.smj-datenschutz {
-	padding-top: 0.9rem;
-	border-top: 1px solid #c9dcec;
-	font-size: 0.9375rem;
 }
 
 .smj-status {

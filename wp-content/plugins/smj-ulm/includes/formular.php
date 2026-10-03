@@ -65,7 +65,6 @@ function smj_ulm_aktion_content( $content ) {
 		? ( $schluss ? 'Anmeldung offen bis ' . smj_ulm_datum( $schluss->modify( '-1 day' ), 'd.m.Y' ) : 'Anmeldung offen' )
 		: 'Anmeldung geschlossen';
 
-	$loesch = smj_ulm_loeschdatum( $id );
 	$info   = '<aside class="smj-aktion__info">'
 		. '<div class="smj-box">'
 		. '<p class="smj-status ' . ( $offen ? 'is-offen' : 'is-geschlossen' ) . '">' . esc_html( $status ) . '</p>'
@@ -76,7 +75,6 @@ function smj_ulm_aktion_content( $content ) {
 		. '<ol><li>Nach dem Absenden kommt sofort eine Bestätigung per E-Mail.</li>'
 		. '<li>Mit der Überweisung des Teilnahmebeitrags ist die Anmeldung wirksam.</li>'
 		. '<li>Ein paar Tage vorher kommt eine kurze Packliste.</li></ol>'
-		. ( $loesch ? '<p class="smj-datenschutz">Alle Angaben werden <strong>' . intdiv( SMJ_ULM_LOESCHFRIST_TAGE, 7 ) . ' Wochen nach der Aktion automatisch gelöscht</strong> (am ' . esc_html( smj_ulm_datum( $loesch, 'd.m.Y' ) ) . ').</p>' : '' )
 		. '</div>' : '' )
 		. '</aside>';
 
