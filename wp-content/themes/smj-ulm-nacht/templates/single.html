@@ -1,0 +1,32 @@
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"nacht-beitrag","style":{"spacing":{"margin":{"top":"0"},"blockGap":"0"}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group nacht-beitrag" style="margin-top:0">
+	<!-- wp:cover {"useFeaturedImage":true,"dimRatio":70,"overlayColor":"navy-dark","minHeight":62,"minHeightUnit":"vh","contentPosition":"bottom left","align":"full","className":"nacht-beitrag__kopf"} -->
+	<div class="wp-block-cover alignfull has-custom-content-position is-position-bottom-left nacht-beitrag__kopf" style="min-height:62vh"><span aria-hidden="true" class="wp-block-cover__background has-navy-dark-background-color has-background-dim-70 has-background-dim"></span><div class="wp-block-cover__inner-container">
+		<!-- wp:group {"layout":{"type":"constrained","contentSize":"1200px"}} -->
+		<div class="wp-block-group">
+			<!-- wp:smj/brotkruemel /-->
+			<!-- wp:post-date {"format":"j. F Y"} /-->
+			<!-- wp:post-title {"level":1} /-->
+		</div>
+		<!-- /wp:group -->
+	</div></div>
+	<!-- /wp:cover -->
+
+	<!-- wp:group {"className":"nacht-beitrag__inhalt","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group nacht-beitrag__inhalt">
+		<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+
+		<!-- wp:group {"className":"smj-beitrag-nav","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
+		<div class="wp-block-group smj-beitrag-nav">
+			<!-- wp:post-navigation-link {"type":"previous","label":"Älterer Beitrag","showTitle":true} /-->
+			<!-- wp:post-navigation-link {"label":"Neuerer Beitrag","showTitle":true} /-->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->

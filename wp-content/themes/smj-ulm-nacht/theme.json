@@ -1,0 +1,61 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"color": {
+			"palette": [
+				{ "slug": "navy", "name": "SMJ-Blau (Logo)", "color": "#004E89" },
+				{ "slug": "navy-dark", "name": "Nacht", "color": "#0A1724" },
+				{ "slug": "sky", "name": "Himmelblau", "color": "#3D9BE0" },
+				{ "slug": "sky-light", "name": "Nebel", "color": "#E7EEF5" },
+				{ "slug": "fire", "name": "Glut", "color": "#E8742A" },
+				{ "slug": "fire-light", "name": "Glut hell", "color": "#FCE6D6" },
+				{ "slug": "ink", "name": "Text", "color": "#101B27" },
+				{ "slug": "muted", "name": "Text gedämpft", "color": "#566474" },
+				{ "slug": "line", "name": "Linie", "color": "#DDE3EA" },
+				{ "slug": "paper", "name": "Hintergrund", "color": "#F2F4F7" },
+				{ "slug": "white", "name": "Weiß", "color": "#FFFFFF" }
+			]
+		},
+		"typography": {
+			"fontFamilies": [
+				{
+					"slug": "body",
+					"name": "Archivo",
+					"fontFamily": "Archivo, system-ui, sans-serif",
+					"fontFace": [
+						{ "fontFamily": "Archivo", "fontStyle": "normal", "fontWeight": "100 900", "fontStretch": "62% 125%", "fontDisplay": "swap", "src": [ "file:./assets/fonts/archivo-latin-wdth-normal.woff2" ] }
+					]
+				},
+				{
+					"slug": "display",
+					"name": "Archivo schmal",
+					"fontFamily": "Archivo, system-ui, sans-serif"
+				}
+			]
+		}
+	},
+	"styles": {
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--body)",
+			"lineHeight": "1.6"
+		},
+		"elements": {
+			"heading": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--display)",
+					"fontWeight": "900",
+					"textTransform": "uppercase",
+					"letterSpacing": "-0.005em",
+					"lineHeight": "0.95"
+				}
+			},
+			"button": {
+				"color": { "background": "var(--wp--preset--color--fire)", "text": "var(--wp--preset--color--navy-dark)" },
+				"border": { "radius": "6px" },
+				"typography": { "fontWeight": "800", "textTransform": "uppercase", "letterSpacing": "0.04em" },
+				":hover": { "color": { "background": "#FF8B3D", "text": "var(--wp--preset--color--navy-dark)" } }
+			}
+		}
+	}
+}

@@ -1,0 +1,60 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"color": {
+			"palette": [
+				{ "slug": "navy", "name": "SMJ-Blau (Logo)", "color": "#004E89" },
+				{ "slug": "navy-dark", "name": "Tiefblau", "color": "#0D2B4A" },
+				{ "slug": "sky", "name": "Himmel", "color": "#2C83CC" },
+				{ "slug": "sky-light", "name": "Himmel hell", "color": "#DDEEFB" },
+				{ "slug": "fire", "name": "Koralle", "color": "#C2462B" },
+				{ "slug": "fire-light", "name": "Koralle hell", "color": "#FDE3DA" },
+				{ "slug": "sun", "name": "Sonne", "color": "#FFC94A" },
+				{ "slug": "meadow", "name": "Wiese", "color": "#2E7D55" },
+				{ "slug": "meadow-light", "name": "Wiese hell", "color": "#DDF1E4" },
+				{ "slug": "ink", "name": "Text", "color": "#14202E" },
+				{ "slug": "muted", "name": "Text gedämpft", "color": "#56616F" },
+				{ "slug": "line", "name": "Linie", "color": "#E6E2D8" },
+				{ "slug": "paper", "name": "Hintergrund", "color": "#FAF8F3" },
+				{ "slug": "white", "name": "Weiß", "color": "#FFFFFF" }
+			]
+		},
+		"typography": {
+			"fontFamilies": [
+				{
+					"slug": "body",
+					"name": "DM Sans",
+					"fontFamily": "'DM Sans', system-ui, sans-serif",
+					"fontFace": [
+						{ "fontFamily": "DM Sans", "fontStyle": "normal", "fontWeight": "100 1000", "fontDisplay": "swap", "src": [ "file:./assets/fonts/dm-sans-latin-wght-normal.woff2" ] },
+						{ "fontFamily": "DM Sans", "fontStyle": "italic", "fontWeight": "100 1000", "fontDisplay": "swap", "src": [ "file:./assets/fonts/dm-sans-latin-wght-italic.woff2" ] }
+					]
+				},
+				{
+					"slug": "display",
+					"name": "Unbounded",
+					"fontFamily": "Unbounded, 'DM Sans', system-ui, sans-serif",
+					"fontFace": [
+						{ "fontFamily": "Unbounded", "fontStyle": "normal", "fontWeight": "200 900", "fontDisplay": "swap", "src": [ "file:./assets/fonts/unbounded-latin-wght-normal.woff2" ] }
+					]
+				}
+			]
+		}
+	},
+	"styles": {
+		"elements": {
+			"heading": {
+				"typography": {
+					"fontWeight": "700",
+					"letterSpacing": "-0.02em",
+					"lineHeight": "1.1"
+				}
+			},
+			"button": {
+				"border": { "radius": "999px" },
+				"color": { "background": "var(--wp--preset--color--navy)", "text": "#FFFFFF" }
+			}
+		}
+	}
+}

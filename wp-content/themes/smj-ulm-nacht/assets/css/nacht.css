@@ -1,0 +1,992 @@
+/**
+ * Entwurf 2 "Nacht": Lagerfeuer bei Nacht.
+ * Ergänzt die Gestaltung des Eltern-Themes; Farben kommen aus theme.json.
+ */
+
+:root {
+	--n-nacht: #0a1724;
+	--n-nacht-2: #11263b;
+	--n-nacht-3: #183450;
+	--n-glut: var(--wp--preset--color--fire);
+	--n-glut-hell: #ffb07a;
+	--n-nebel: #c9d6e3;
+	--n-breit: "wdth" 125;
+	--n-schmal: "wdth" 62;
+}
+
+@view-transition {
+	navigation: auto;
+}
+
+body {
+	font-variation-settings: "wdth" 100;
+}
+
+:where(h1, h2, h3, .wp-block-heading) {
+	font-stretch: 62%;
+	font-variation-settings: var(--n-schmal);
+}
+
+.nacht-glut {
+	color: var(--n-glut);
+}
+
+.nacht-kicker,
+.smj-eyebrow {
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+	font-stretch: 125%;
+	font-variation-settings: var(--n-breit);
+	color: var(--n-glut);
+}
+
+.nacht-mehr a {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.6rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: inherit;
+	border-bottom: 2px solid var(--n-glut);
+	padding-bottom: 0.2rem;
+}
+
+.nacht-mehr a::after {
+	content: "→";
+	transition: transform 0.2s ease;
+}
+
+.nacht-mehr a:hover::after {
+	transform: translateX(4px);
+}
+
+/* ---------- Kopfzeile: auf der Startseite transparent über dem Bild ---------- */
+
+.nacht-kopf {
+	position: sticky;
+	top: 0;
+	z-index: 60;
+	padding-block: 0.9rem;
+	background: rgba(10, 23, 36, 0.92);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	color: #fff;
+	transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+.admin-bar .nacht-kopf {
+	top: var(--wp-admin--admin-bar--height, 32px);
+}
+
+.home .nacht-kopf {
+	position: fixed;
+	left: 0;
+	right: 0;
+	background: transparent;
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
+}
+
+.home .nacht-kopf.ist-gescrollt {
+	background: rgba(10, 23, 36, 0.92);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	padding-block: 0.6rem;
+}
+
+.nacht-logo {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.75rem;
+	color: #fff;
+	text-decoration: none;
+}
+
+.nacht-logo img {
+	height: 52px;
+	filter: brightness(0) invert(1);
+}
+
+.nacht-logo__text {
+	font-size: 0.72rem;
+	font-weight: 800;
+	line-height: 1.25;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	font-stretch: 125%;
+	font-variation-settings: var(--n-breit);
+}
+
+.nacht-nav .wp-block-navigation-item__content {
+	color: #fff !important;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	font-size: 0.85rem;
+	border-bottom-color: transparent;
+}
+
+.nacht-nav .wp-block-navigation-item__content:hover,
+.nacht-nav .current-menu-item > .wp-block-navigation-item__content {
+	color: var(--n-glut-hell) !important;
+	border-bottom-color: var(--n-glut) !important;
+}
+
+.nacht-nav .wp-block-navigation__submenu-container {
+	background: var(--n-nacht-2) !important;
+	border-color: var(--n-nacht-3) !important;
+}
+
+.nacht-nav .wp-block-navigation__submenu-container .wp-block-navigation-item__content:hover {
+	background: var(--n-nacht-3);
+}
+
+.nacht-nav .wp-block-navigation__responsive-container.is-menu-open {
+	background: var(--n-nacht) !important;
+	color: #fff !important;
+}
+
+.nacht-nav .wp-block-navigation__responsive-container-open svg,
+.nacht-nav .wp-block-navigation__responsive-container-close svg {
+	fill: #fff;
+}
+
+/* ---------- Einstieg: Vollbild-Diashow ---------- */
+
+.nacht-hero {
+	position: relative;
+	display: grid;
+	align-items: end;
+	min-height: 100svh;
+	padding-block: 8rem 6rem;
+	overflow: hidden;
+	background: var(--n-nacht);
+	color: #fff;
+	isolation: isolate;
+}
+
+.nacht-hero > .nacht-hero__bilder {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	max-width: none !important;
+	margin: 0 !important;
+	border-radius: 0;
+	aspect-ratio: auto;
+}
+
+.nacht-hero__bilder .smj-diashow__slide img {
+	transform: scale(1.12);
+}
+
+.nacht-hero__bilder .smj-diashow__slide.is-aktiv img {
+	animation: nacht-kenburns 9s ease-out forwards;
+}
+
+@keyframes nacht-kenburns {
+	from { transform: scale(1.12) translate(1%, 1%); }
+	to { transform: scale(1) translate(0, 0); }
+}
+
+/* Lesbarkeit der Schrift über jedem Foto */
+.nacht-hero__bilder::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background:
+		linear-gradient(to top, rgba(10, 23, 36, 0.95) 0%, rgba(10, 23, 36, 0.55) 45%, rgba(10, 23, 36, 0.25) 75%, rgba(10, 23, 36, 0.6) 100%);
+	pointer-events: none;
+}
+
+.nacht-hero__bilder .smj-diashow__punkte {
+	left: auto;
+	right: max(1.5rem, calc((100vw - 1200px) / 2));
+	bottom: 2rem;
+	justify-content: flex-end;
+	z-index: 2;
+}
+
+.nacht-hero__bilder .smj-diashow__pause {
+	top: auto;
+	bottom: 1.75rem;
+	right: auto;
+	left: max(1.5rem, calc((100vw - 1200px) / 2));
+	z-index: 2;
+}
+
+.nacht-hero__text > * {
+	margin: 0;
+}
+
+.nacht-hero__titel {
+	margin-block: 1rem 1.5rem !important;
+	font-size: clamp(3.4rem, 11vw, 9.5rem) !important;
+	line-height: 0.86 !important;
+	color: #fff;
+	text-shadow: 0 2px 30px rgba(0, 0, 0, 0.35);
+}
+
+.nacht-hero__unter {
+	max-width: 34rem;
+	font-size: 1.2rem;
+	color: var(--n-nebel);
+}
+
+.nacht-runter {
+	position: absolute;
+	left: 50%;
+	bottom: 1.5rem;
+	translate: -50% 0;
+	display: grid;
+	place-items: center;
+	width: 52px;
+	height: 52px;
+	border: 1px solid rgba(255, 255, 255, 0.35);
+	border-radius: 999px;
+	color: #fff;
+	animation: nacht-wippen 2.4s ease-in-out infinite;
+}
+
+@keyframes nacht-wippen {
+	0%, 100% { transform: translateY(0); }
+	50% { transform: translateY(6px); }
+}
+
+/* ---------- Bänder ---------- */
+
+.nacht-band {
+	padding-block: clamp(4rem, 9vw, 7rem);
+}
+
+.nacht-band--anmeldung {
+	background: var(--n-nacht);
+	color: #fff;
+}
+
+.nacht-band--anmeldung:not(:has(.smj-aktion-karte)) {
+	display: none;
+}
+
+.nacht-band--news {
+	background: var(--wp--preset--color--paper);
+}
+
+.nacht-band--termine {
+	background: var(--n-nacht-2);
+	color: #fff;
+}
+
+.nacht-band h2,
+.smj-aktionen__titel,
+.smj-countdown__titel {
+	font-size: clamp(2.6rem, 6.5vw, 5rem) !important;
+	line-height: 0.92;
+}
+
+/* ---------- Anmeldungen als Tickets ---------- */
+
+.nacht-band--anmeldung .smj-aktionen {
+	padding: 0;
+}
+
+.nacht-band--anmeldung .smj-aktionen__titel {
+	color: #fff;
+}
+
+.nacht-band--anmeldung .smj-aktionen__grid {
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: minmax(min(88vw, 560px), 1fr);
+	grid-template-columns: none;
+	gap: 1.5rem;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	padding-bottom: 1rem;
+	scrollbar-color: var(--n-glut) transparent;
+}
+
+.nacht-band--anmeldung .smj-aktion-karte {
+	scroll-snap-align: start;
+	grid-template-columns: minmax(0, 1fr) 150px;
+	grid-template-rows: 220px auto;
+	border: 0;
+	border-radius: 18px;
+	background: #fff;
+	color: var(--wp--preset--color--ink);
+	overflow: visible;
+	-webkit-mask: radial-gradient(circle 14px at calc(100% - 150px) 0, transparent 98%, #000) top / 100% 51% no-repeat,
+		radial-gradient(circle 14px at calc(100% - 150px) 100%, transparent 98%, #000) bottom / 100% 51% no-repeat;
+	mask: radial-gradient(circle 14px at calc(100% - 150px) 0, transparent 98%, #000) top / 100% 51% no-repeat,
+		radial-gradient(circle 14px at calc(100% - 150px) 100%, transparent 98%, #000) bottom / 100% 51% no-repeat;
+}
+
+.nacht-band--anmeldung .smj-aktion-karte__media {
+	grid-column: 1 / -1;
+	grid-row: 1;
+	min-height: 0;
+	border-radius: 18px 18px 0 0;
+	overflow: hidden;
+}
+
+.nacht-band--anmeldung .smj-aktion-karte__body {
+	grid-column: 1;
+	grid-row: 2;
+	padding: 1.5rem 1.75rem 1.75rem;
+}
+
+.nacht-band--anmeldung .smj-aktion-karte__titel {
+	font-size: 2rem;
+}
+
+/* Abriss-Coupon rechts mit Datum aus dem Datums-Chip */
+.nacht-band--anmeldung .smj-aktion-karte::after {
+	content: "Ticket";
+	grid-column: 2;
+	grid-row: 2;
+	display: grid;
+	place-items: center;
+	margin: 1.25rem 0;
+	border-left: 2px dashed var(--wp--preset--color--line);
+	font-weight: 900;
+	font-size: 1.6rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	writing-mode: vertical-rl;
+	color: var(--n-glut);
+	font-stretch: 62%;
+}
+
+.nacht-band--anmeldung .smj-chip {
+	background: var(--n-nacht);
+	color: #fff;
+}
+
+.nacht-band--anmeldung .smj-chip--frist {
+	background: var(--wp--preset--color--fire-light);
+	color: #8e3a0b;
+}
+
+.nacht-band--anmeldung .smj-button {
+	background: var(--n-glut);
+	color: var(--n-nacht);
+	border-radius: 6px;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	font-weight: 800;
+}
+
+.nacht-band--anmeldung .smj-button:hover {
+	background: var(--n-glut-hell);
+	color: var(--n-nacht);
+}
+
+.nacht-band--anmeldung .smj-aktion-karte:hover {
+	transform: translateY(-4px) rotate(-0.4deg);
+}
+
+@media (max-width: 560px) {
+	.nacht-band--anmeldung .smj-aktion-karte {
+		grid-template-columns: minmax(0, 1fr);
+		-webkit-mask: none;
+		mask: none;
+	}
+
+	.nacht-band--anmeldung .smj-aktion-karte::after {
+		display: none;
+	}
+}
+
+/* ---------- Countdown in Riesenzahlen ---------- */
+
+.smj-countdown.nacht-countdown {
+	margin-block: 0 !important;
+	padding: clamp(4rem, 9vw, 7rem) max(1.5rem, calc((100vw - 1200px) / 2));
+	border-radius: 0;
+	background:
+		radial-gradient(ellipse at 50% 120%, rgba(232, 116, 42, 0.55), transparent 60%),
+		var(--n-nacht);
+	color: #fff;
+}
+
+.nacht-countdown .smj-countdown__kacheln {
+	gap: clamp(0.5rem, 2vw, 2rem);
+}
+
+.nacht-countdown .smj-countdown__kachel {
+	padding: 0;
+	background: none;
+	border-radius: 0;
+	align-items: flex-start;
+	border-top: 2px solid rgba(255, 255, 255, 0.2);
+	padding-top: 1rem;
+}
+
+.nacht-countdown .smj-countdown__zahl {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: clamp(3.5rem, 13vw, 11rem);
+	font-weight: 900;
+	font-stretch: 62%;
+	font-variation-settings: var(--n-schmal);
+	line-height: 0.85;
+	color: transparent;
+	-webkit-text-stroke: 2px #fff;
+}
+
+.nacht-countdown .smj-countdown__kachel:first-child .smj-countdown__zahl {
+	color: var(--n-glut);
+	-webkit-text-stroke: 0;
+}
+
+.nacht-countdown .smj-countdown__einheit {
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	font-size: 0.8rem;
+	color: var(--n-nebel);
+}
+
+.nacht-countdown .smj-button {
+	background: transparent;
+	border: 2px solid #fff;
+	color: #fff;
+	border-radius: 6px;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.nacht-countdown .smj-button:hover {
+	background: #fff;
+	color: var(--n-nacht);
+}
+
+/* ---------- News im Magazin-Stil ---------- */
+
+.nacht-kopfzeile {
+	margin-bottom: 2.5rem;
+}
+
+.nacht-kopfzeile h2 {
+	margin: 0;
+}
+
+.nacht-magazin .wp-block-post-template {
+	display: grid;
+	grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+	grid-template-rows: repeat(4, auto);
+	gap: 0 2.5rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.nacht-magazin .wp-block-post-template > li {
+	margin: 0;
+}
+
+/* Aufmacher links */
+.nacht-magazin .wp-block-post-template > li:first-child {
+	grid-row: 1 / span 4;
+}
+
+.nacht-artikel {
+	position: relative;
+	display: grid;
+	grid-template-columns: 140px minmax(0, 1fr);
+	gap: 1.25rem;
+	align-items: center;
+	padding-block: 1.1rem;
+	border-bottom: 1px solid var(--wp--preset--color--line);
+}
+
+.nacht-artikel__bild {
+	margin: 0;
+	aspect-ratio: 1;
+	overflow: hidden;
+	border-radius: 10px;
+	background: var(--n-nacht-3) url("../../../smj-ulm/assets/images/platzhalter.svg") center / cover;
+}
+
+.nacht-artikel__bild img {
+	width: 100%;
+	height: 100% !important;
+	object-fit: cover;
+	transition: transform 0.5s ease;
+}
+
+.nacht-artikel:hover .nacht-artikel__bild img {
+	transform: scale(1.06);
+}
+
+.nacht-artikel__text > * {
+	margin: 0;
+}
+
+.nacht-artikel__text {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+}
+
+.nacht-artikel__titel {
+	font-size: 1.5rem !important;
+	line-height: 1;
+}
+
+.nacht-artikel__titel a {
+	color: var(--wp--preset--color--ink);
+	text-decoration: none;
+}
+
+.nacht-artikel__titel a::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+}
+
+.nacht-artikel .wp-block-post-excerpt {
+	display: none;
+}
+
+.nacht-magazin li:first-child .nacht-artikel {
+	display: block;
+	padding: 0;
+	border: 0;
+}
+
+.nacht-magazin li:first-child .nacht-artikel__bild {
+	aspect-ratio: 4 / 3;
+	border-radius: 16px;
+}
+
+.nacht-magazin li:first-child .nacht-artikel__text {
+	margin-top: 1.25rem;
+}
+
+.nacht-magazin li:first-child .nacht-artikel__titel {
+	font-size: clamp(2.2rem, 4vw, 3.4rem) !important;
+}
+
+.nacht-magazin li:first-child .wp-block-post-excerpt {
+	display: block;
+	font-size: 1.05rem;
+}
+
+.nacht-artikel:focus-within {
+	outline: 3px solid var(--wp--preset--color--sky);
+	outline-offset: 4px;
+}
+
+.nacht-artikel__titel a:focus-visible {
+	outline: none;
+}
+
+@media (max-width: 860px) {
+	.nacht-magazin .wp-block-post-template {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.nacht-magazin .wp-block-post-template > li:first-child {
+		grid-row: auto;
+		margin-bottom: 1rem;
+	}
+
+	.nacht-artikel {
+		grid-template-columns: 96px minmax(0, 1fr);
+	}
+}
+
+/* ---------- Termine als Zeitstrahl ---------- */
+
+.nacht-termine__kopf {
+	position: sticky;
+	top: 7rem;
+	align-self: flex-start;
+}
+
+.nacht-termine__kopf h2 {
+	margin: 0 0 1rem;
+	color: #fff;
+}
+
+.nacht-termine__kopf p {
+	color: var(--n-nebel);
+}
+
+.nacht-zeitstrahl .smj-termine-block {
+	background: none;
+	border: 0;
+	border-radius: 0;
+}
+
+.nacht-zeitstrahl .smj-termine {
+	position: relative;
+	padding: 0 0 0 2rem;
+}
+
+.nacht-zeitstrahl .smj-termine::before {
+	content: "";
+	position: absolute;
+	left: 7px;
+	top: 0.5rem;
+	bottom: 0.5rem;
+	width: 2px;
+	background: linear-gradient(var(--n-glut), rgba(232, 116, 42, 0.1));
+}
+
+.nacht-zeitstrahl .smj-termin {
+	position: relative;
+	grid-template-columns: 88px minmax(0, 1fr);
+	padding: 1.25rem 0;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nacht-zeitstrahl .smj-termin::before {
+	content: "";
+	position: absolute;
+	left: -2rem;
+	top: 1.6rem;
+	width: 16px;
+	height: 16px;
+	border-radius: 999px;
+	background: var(--n-nacht-2);
+	border: 3px solid var(--n-glut);
+	box-shadow: 0 0 0 4px rgba(232, 116, 42, 0.15);
+}
+
+.nacht-zeitstrahl .smj-termin__datum {
+	background: none;
+	color: #fff;
+	align-items: flex-start;
+	padding: 0;
+}
+
+.nacht-zeitstrahl .smj-termin__tag {
+	font-size: 2.6rem;
+	font-weight: 900;
+	font-stretch: 62%;
+	font-variation-settings: var(--n-schmal);
+}
+
+.nacht-zeitstrahl .smj-termin__monat {
+	color: var(--n-glut);
+	letter-spacing: 0.15em;
+}
+
+.nacht-zeitstrahl .smj-termin__titel {
+	color: #fff;
+	font-size: 1.15rem;
+}
+
+.nacht-zeitstrahl .smj-termin__text {
+	color: var(--n-nebel);
+}
+
+.nacht-zeitstrahl .smj-termine__links a {
+	color: var(--n-glut-hell);
+}
+
+@media (max-width: 781px) {
+	.nacht-termine__kopf {
+		position: static;
+	}
+}
+
+/* ---------- Unterseiten ---------- */
+
+.nacht-seitenkopf {
+	padding-block: 3rem 3.5rem;
+	background: var(--n-nacht);
+	color: #fff;
+}
+
+.nacht-seitenkopf .smj-brotkruemel ol,
+.nacht-seitenkopf .smj-brotkruemel a {
+	color: var(--n-nebel);
+}
+
+.nacht-seitenkopf .wp-block-post-title {
+	margin: 0.5rem 0 0;
+	font-size: clamp(3rem, 8vw, 6.5rem);
+	line-height: 0.9;
+	color: #fff;
+}
+
+.nacht-seiteninhalt {
+	padding-block: 3rem 5rem;
+}
+
+.nacht-beitrag__kopf .wp-block-post-title {
+	font-size: clamp(2.6rem, 7vw, 5.5rem);
+	color: #fff;
+	margin: 0.5rem 0 0;
+}
+
+.nacht-beitrag__kopf .wp-block-post-date,
+.nacht-beitrag__kopf .smj-brotkruemel ol,
+.nacht-beitrag__kopf .smj-brotkruemel a {
+	color: var(--n-nebel);
+}
+
+.nacht-beitrag__inhalt {
+	padding-block: 3rem 5rem;
+}
+
+/* Anmeldeseite: Kopf dunkel wie die übrigen Seitenköpfe */
+.smj-seitenkopf {
+	background: var(--n-nacht) !important;
+}
+
+.smj-seitenkopf .wp-block-post-title {
+	font-size: clamp(2.6rem, 7vw, 5rem) !important;
+}
+
+/* Karten und Buttons im Inhalt passend */
+.wp-block-post-content .btn,
+.wpcf7-submit {
+	border-radius: 6px;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.wpcf7-submit {
+	background: var(--n-glut);
+	color: var(--n-nacht);
+}
+
+.wpcf7-submit:hover {
+	background: var(--n-glut-hell);
+	color: var(--n-nacht);
+}
+
+.wp-block-post-content .card,
+.smj-karte,
+.smj-box,
+.wpcf7 {
+	border-radius: 12px;
+}
+
+.wp-block-post-content .card-header :is(h1, h2, h3, h4, h5, h6),
+.smj-karte__titel {
+	text-transform: uppercase;
+	font-stretch: 62%;
+	font-variation-settings: var(--n-schmal);
+	font-weight: 900;
+	font-size: 1.6rem;
+	line-height: 1;
+}
+
+/* ---------- Fußbereich ---------- */
+
+.nacht-fuss {
+	padding-block: 5rem 2rem;
+	background: var(--n-nacht);
+	color: var(--n-nebel);
+	overflow: hidden;
+}
+
+.nacht-fuss a {
+	color: #fff;
+}
+
+.nacht-fuss__oben {
+	display: grid;
+	grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+	gap: 3rem;
+}
+
+.nacht-fuss__newsletter h2 {
+	margin: 0 0 0.75rem;
+	font-size: clamp(2.4rem, 5vw, 3.6rem);
+	color: #fff;
+}
+
+.nacht-fuss__newsletter p {
+	margin: 0 0 1.25rem;
+}
+
+.nacht-fuss .tnp-subscription-minimal {
+	margin: 0;
+}
+
+.nacht-fuss .tnp-subscription-minimal form {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	gap: 0.6rem;
+	white-space: normal;
+	text-align: left !important;
+}
+
+.nacht-fuss .tnp-subscription-minimal input.tnp-email {
+	width: 100%;
+	max-width: none;
+	min-height: 54px;
+	margin: 0;
+	padding: 0 1rem;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	border-radius: 6px;
+	background: rgba(255, 255, 255, 0.06);
+	color: #fff;
+	font: inherit;
+}
+
+.nacht-fuss .tnp-subscription-minimal input.tnp-email::placeholder {
+	color: var(--n-nebel);
+}
+
+.nacht-fuss .tnp-subscription-minimal .tnp-submit {
+	width: auto;
+	min-height: 54px;
+	margin: 0;
+	padding: 0 1.5rem;
+	border: 0;
+	border-radius: 6px;
+	background: var(--n-glut);
+	color: var(--n-nacht);
+	font: inherit;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	cursor: pointer;
+}
+
+.nacht-fuss .tnp-privacy-field {
+	grid-column: 1 / -1;
+	margin: 0.25rem 0 0;
+	font-size: 0.9rem;
+}
+
+.nacht-fuss .tnp-privacy-field label {
+	display: flex;
+	gap: 0.6rem;
+	align-items: flex-start;
+}
+
+.nacht-fuss .tnp-privacy-field input {
+	flex-shrink: 0;
+	width: 18px;
+	height: 18px;
+	margin: 0.15rem 0 0;
+	accent-color: var(--n-glut);
+}
+
+.nacht-fuss .tnp-privacy-field a {
+	min-width: 0;
+	overflow-wrap: anywhere;
+	color: var(--n-nebel);
+}
+
+.nacht-fuss__links {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	padding-top: 0.75rem;
+}
+
+.nacht-fuss__nav .wp-block-navigation-item__content {
+	font-size: 1.4rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	font-stretch: 62%;
+	font-variation-settings: var(--n-schmal);
+	color: #fff;
+	text-decoration: none;
+}
+
+.nacht-fuss__nav .wp-block-navigation-item__content:hover {
+	color: var(--n-glut);
+}
+
+.nacht-fuss__extern {
+	margin: 0;
+}
+
+.nacht-fuss__extern a {
+	color: var(--n-glut-hell);
+	font-weight: 700;
+}
+
+.nacht-fuss__riesig {
+	margin: 4rem 0 0 !important;
+	font-size: clamp(3rem, 12.5vw, 11rem);
+	font-weight: 900;
+	font-stretch: 62%;
+	font-variation-settings: var(--n-schmal);
+	line-height: 0.82;
+	text-transform: uppercase;
+	white-space: nowrap;
+	color: transparent;
+	-webkit-text-stroke: 1px rgba(255, 255, 255, 0.28);
+	user-select: none;
+}
+
+.nacht-fuss__copy {
+	margin-top: 2rem !important;
+	font-size: 0.85rem;
+}
+
+@media (max-width: 800px) {
+	.nacht-fuss__oben {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.nacht-fuss__riesig {
+		white-space: normal;
+	}
+}
+
+@media (max-width: 480px) {
+	.nacht-fuss .tnp-subscription-minimal form {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+/* ---------- Einblenden beim Scrollen ---------- */
+
+@supports (animation-timeline: view()) {
+	@media (prefers-reduced-motion: no-preference) {
+		.nacht-band :is(h2, .smj-aktion-karte, .nacht-artikel, .smj-termin),
+		.nacht-countdown .smj-countdown__kachel {
+			animation: nacht-auftauchen linear both;
+			animation-timeline: view();
+			animation-range: entry 0% entry 40%;
+		}
+	}
+}
+
+@keyframes nacht-auftauchen {
+	from { opacity: 0; transform: translateY(40px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.nacht-hero__bilder .smj-diashow__slide.is-aktiv img,
+	.nacht-runter {
+		animation: none;
+	}
+
+	.nacht-hero__bilder .smj-diashow__slide img {
+		transform: none;
+	}
+
+	@view-transition {
+		navigation: none;
+	}
+}
+
+@media (max-width: 700px) {
+	.nacht-runter {
+		display: none;
+	}
+}
+
+/* Seiten mit eigener Überschrift im Inhalt: Kopf nur als schmale Leiste mit Brotkrümeln */
+.nacht-seitenkopf:not(:has(.wp-block-post-title)) {
+	padding-block: 1.1rem;
+}
+
+.nacht-seitenkopf:not(:has(.wp-block-post-title)) .smj-brotkruemel ol {
+	margin: 0;
+}

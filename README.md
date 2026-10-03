@@ -9,6 +9,8 @@ Ersetzt wird nur das alte Theme (Understrap), dazu kommt ein eigenes Plugin.
 | Ordner | Was |
 |---|---|
 | `wp-content/themes/smj-ulm/` | Neues Block-Theme: Design, Startseite, Diashow, Countdown, Brotkrümel |
+| `wp-content/themes/smj-ulm-nacht/` | Entwurf 2 „Nacht“ (Kind-Theme): dunkel, Vollbild-Diashow, Tickets, Zeitstrahl |
+| `wp-content/themes/smj-ulm-sommer/` | Entwurf 3 „Sommer“ (Kind-Theme): hell, Kachel-Raster, Laufband, schwebende Navigation |
 | `wp-content/plugins/smj-ulm/` | Plugin „SMJ Ulm – Funktionen“: Anmeldungen, Termine, Newsletter-Eintrag |
 | `legacy/` | Unveränderte Kopien der alten Live-Seite als Referenz (Theme, Kalender-Plugin, Code-Snippets) |
 | `assets/` | Logo |
@@ -25,6 +27,11 @@ Ersetzt wird nur das alte Theme (Understrap), dazu kommt ein eigenes Plugin.
 **Termine**: Block „Termine“ liest den Kalender, den das bestehende Plugin „SMJ Ulm/Alb/Donau Kalender“ stündlich lädt, und zeigt ihn im neuen Design (Anzahl, Zeitraum, Kategorien einstellbar).
 
 **Newsletter**: Wer im Anmeldeformular „Newsletter: ja“ wählt, landet in Liste 1 des Newsletter-Plugins (aus dem Code-Snippet „NewsletterAnmeldung“ übernommen).
+
+## Drei Entwürfe
+
+Alle drei nutzen dasselbe Plugin und dieselben Inhalte; man wechselt nur unter Design → Themes.
+Die Entwürfe „Nacht“ und „Sommer“ sind Kind-Themes von „SMJ Ulm“ – das Eltern-Theme muss daher installiert bleiben.
 
 ## Umstieg auf der Live-Seite
 

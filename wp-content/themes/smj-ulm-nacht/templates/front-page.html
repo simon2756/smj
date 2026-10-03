@@ -1,0 +1,108 @@
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"nacht-start","style":{"spacing":{"margin":{"top":"0"},"blockGap":"0"}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group nacht-start" style="margin-top:0">
+
+	<!-- wp:group {"align":"full","className":"nacht-hero","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull nacht-hero">
+		<!-- wp:smj/diashow {"sekunden":6,"className":"nacht-hero__bilder"} /-->
+
+		<!-- wp:group {"align":"wide","className":"nacht-hero__text","layout":{"type":"default"}} -->
+		<div class="wp-block-group alignwide nacht-hero__text">
+			<!-- wp:paragraph {"className":"nacht-kicker"} -->
+			<p class="nacht-kicker">Schönstatt-Mannesjugend · Ulm · Alb · Donau</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:heading {"level":1,"className":"nacht-hero__titel"} -->
+			<h1 class="wp-block-heading nacht-hero__titel">Glaube.<br>Gemeinschaft.<br><span class="nacht-glut">Abenteuer.</span></h1>
+			<!-- /wp:heading -->
+
+			<!-- wp:paragraph {"className":"nacht-hero__unter"} -->
+			<p class="nacht-hero__unter">Gruppenstunden in deinem Ort, Wochenenden mit anderen Jungs und jeden Sommer unser Zeltlager.</p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:html -->
+		<a class="nacht-runter" href="#nacht-weiter"><span class="screen-reader-text">Weiter nach unten</span><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+		<!-- /wp:html -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"align":"full","anchor":"nacht-weiter","className":"nacht-band nacht-band--anmeldung","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull nacht-band nacht-band--anmeldung" id="nacht-weiter">
+		<!-- wp:smj/aktionen {"ueberschrift":"Sei dabei","align":"wide"} /-->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:smj/countdown {"ziel":"2027-08-06T17:00","oberzeile":"Zeltlager 2027","titel":"Noch so lange bis zum Lagerfeuer","buttonText":"Alles zum Zeltlager","buttonLink":"/zeltlager/","align":"full","className":"nacht-countdown"} /-->
+
+	<!-- wp:group {"align":"full","className":"nacht-band nacht-band--news","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull nacht-band nacht-band--news">
+		<!-- wp:group {"align":"wide","className":"nacht-kopfzeile","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"bottom"}} -->
+		<div class="wp-block-group alignwide nacht-kopfzeile">
+			<!-- wp:heading {"anchor":"news"} -->
+			<h2 class="wp-block-heading" id="news">Aus der Abteilung</h2>
+			<!-- /wp:heading -->
+
+			<!-- wp:paragraph {"className":"nacht-mehr"} -->
+			<p class="nacht-mehr"><a href="/category/news/">Alle News</a></p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:query {"queryId":11,"query":{"perPage":5,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":false},"align":"wide","className":"nacht-magazin"} -->
+		<div class="wp-block-query alignwide nacht-magazin">
+			<!-- wp:post-template {"layout":{"type":"default"}} -->
+				<!-- wp:group {"className":"nacht-artikel","layout":{"type":"default"}} -->
+				<div class="wp-block-group nacht-artikel">
+					<!-- wp:post-featured-image {"isLink":true,"className":"nacht-artikel__bild"} /-->
+					<!-- wp:group {"className":"nacht-artikel__text","layout":{"type":"default"}} -->
+					<div class="wp-block-group nacht-artikel__text">
+						<!-- wp:post-date {"format":"j. F Y"} /-->
+						<!-- wp:post-title {"level":3,"isLink":true,"className":"nacht-artikel__titel"} /-->
+						<!-- wp:post-excerpt {"excerptLength":22,"moreText":""} /-->
+					</div>
+					<!-- /wp:group -->
+				</div>
+				<!-- /wp:group -->
+			<!-- /wp:post-template -->
+		</div>
+		<!-- /wp:query -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"align":"full","className":"nacht-band nacht-band--termine","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull nacht-band nacht-band--termine">
+		<!-- wp:columns {"align":"wide","className":"nacht-termine"} -->
+		<div class="wp-block-columns alignwide nacht-termine">
+			<!-- wp:column {"width":"38%","className":"nacht-termine__kopf"} -->
+			<div class="wp-block-column nacht-termine__kopf" style="flex-basis:38%">
+				<!-- wp:heading {"anchor":"termine"} -->
+				<h2 class="wp-block-heading" id="termine">Was ansteht</h2>
+				<!-- /wp:heading -->
+
+				<!-- wp:paragraph -->
+				<p>Gruppenstunden, Andachten, Wochenenden – die nächsten Termine direkt aus unserem Kalender.</p>
+				<!-- /wp:paragraph -->
+
+				<!-- wp:paragraph {"className":"nacht-mehr"} -->
+				<p class="nacht-mehr"><a href="/termine/">Alle Termine</a></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column {"className":"nacht-zeitstrahl"} -->
+			<div class="wp-block-column nacht-zeitstrahl">
+				<!-- wp:smj/termine {"anzahl":6} /-->
+			</div>
+			<!-- /wp:column -->
+		</div>
+		<!-- /wp:columns -->
+	</div>
+	<!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
