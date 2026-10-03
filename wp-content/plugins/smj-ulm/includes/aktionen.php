@@ -205,3 +205,86 @@ function smj_ulm_formular_geschlossen( $form_id ) {
 	}
 	return true;
 }
+
+add_filter( 'query_loop_block_query_vars', 'smj_ulm_news_ohne_anmeldungen' );
+add_action( 'pre_get_posts', 'smj_ulm_archiv_ohne_anmeldungen' );
+
+/**
+ * Beiträge, aus denen eine gerade offene Anmeldung übernommen wurde.
+ * Sie stehen schon im Bereich "Anmeldungen" und sollen nicht doppelt bei den News auftauchen.
+ * Nach dem Anmeldeschluss erscheinen sie wieder normal in den News.
+ *
+ * @return int[]
+ */
+function smj_ulm_beitraege_offener_anmeldungen() {
+	static $ids = null;
+	if ( null !== $ids ) {
+		return $ids;
+	}
+
+	$ids      = array();
+	$formulare = array();
+	foreach ( smj_ulm_offene_aktionen() as $aktion ) {
+		$quelle = (int) get_post_meta( $aktion->ID, '_smj_quelle', true );
+		if ( $quelle ) {
+			$ids[] = $quelle;
+		}
+		$formulare[] = (int) get_post_meta( $aktion->ID, '_smj_formular', true );
+	}
+
+	// Auch von Hand angelegte Anmeldungen: Beiträge, in denen dasselbe Formular steckt.
+	$formulare = array_filter( $formulare );
+	if ( $formulare && function_exists( 'smj_ulm_formular_im_inhalt' ) ) {
+		$kandidaten = get_posts(
+			array(
+				'post_type'        => 'post',
+				'post_status'      => 'publish',
+				'posts_per_page'   => 50,
+				's'                => 'contact-form-7',
+				'date_query'       => array( array( 'after' => '18 months ago' ) ),
+				'suppress_filters' => true,
+			)
+		);
+		foreach ( $kandidaten as $post ) {
+			if ( in_array( smj_ulm_formular_im_inhalt( $post->post_content ), $formulare, true ) ) {
+				$ids[] = $post->ID;
+			}
+		}
+	}
+
+	$ids = array_values( array_unique( $ids ) );
+	return $ids;
+}
+
+/**
+ * Abfrage-Blöcke (z. B. "Aus der Abteilung" auf der Startseite) ohne diese Beiträge.
+ *
+ * @param array $query Abfrage-Parameter.
+ * @return array
+ */
+function smj_ulm_news_ohne_anmeldungen( $query ) {
+	$post_type = $query['post_type'] ?? 'post';
+	if ( 'post' !== $post_type && array( 'post' ) !== (array) $post_type ) {
+		return $query;
+	}
+	$ausschliessen = smj_ulm_beitraege_offener_anmeldungen();
+	if ( $ausschliessen ) {
+		$query['post__not_in'] = array_merge( (array) ( $query['post__not_in'] ?? array() ), $ausschliessen );
+	}
+	return $query;
+}
+
+/**
+ * Dasselbe für die News-Übersichten (Blog-Seite, Kategorien).
+ *
+ * @param WP_Query $query Hauptabfrage.
+ */
+function smj_ulm_archiv_ohne_anmeldungen( $query ) {
+	if ( is_admin() || ! $query->is_main_query() || ! ( $query->is_home() || $query->is_category() || $query->is_tag() ) ) {
+		return;
+	}
+	$ausschliessen = smj_ulm_beitraege_offener_anmeldungen();
+	if ( $ausschliessen ) {
+		$query->set( 'post__not_in', array_merge( (array) $query->get( 'post__not_in' ), $ausschliessen ) );
+	}
+}

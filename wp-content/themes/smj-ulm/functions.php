@@ -167,6 +167,7 @@ function smj_theme_galerie_titel( $content, $parsed, $block ) {
 }
 
 add_filter( 'render_block_core/paragraph', 'smj_theme_ohne_maedchen_button' );
+add_filter( 'render_block_core/buttons', 'smj_theme_ohne_einstiegs_buttons' );
 
 /**
  * Der Button "Zur Mädchenjugend" unter den Terminen ist entfallen (der Link steht im Footer).
@@ -178,4 +179,16 @@ add_filter( 'render_block_core/paragraph', 'smj_theme_ohne_maedchen_button' );
  */
 function smj_theme_ohne_maedchen_button( $content ) {
 	return false !== strpos( $content, 'smj-linkkarte' ) ? '' : $content;
+}
+
+/**
+ * Die Buttons "Zu den Anmeldungen" / "Nächste Termine" im Einstieg sind entfallen: beide
+ * Bereiche folgen direkt darunter. Auch in einer im Website-Editor gespeicherten
+ * Startseite werden sie deshalb nicht mehr ausgegeben.
+ *
+ * @param string $content Gerenderte Button-Gruppe.
+ * @return string
+ */
+function smj_theme_ohne_einstiegs_buttons( $content ) {
+	return ( false !== strpos( $content, 'href="#anmeldungen"' ) && false !== strpos( $content, 'href="#termine"' ) ) ? '' : $content;
 }
