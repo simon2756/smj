@@ -175,8 +175,9 @@
 	color: var(--smj-navy);
 }
 
-/* Beitragskarten komplett klickbar: der Link der Überschrift deckt die Karte ab */
-.wp-block-post-content .card .wp-block-post-title a::after {
+/* Karten komplett klickbar: der Link der Überschrift deckt die Karte ab.
+ * Gilt für Beitragskarten aus Abfragen und für Karten mit verlinkter Überschrift. */
+.wp-block-post-content .card :is(.wp-block-post-title, .card-header, .card-title) a::after {
 	content: "";
 	position: absolute;
 	inset: 0;

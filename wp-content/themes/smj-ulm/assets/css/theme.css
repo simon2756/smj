@@ -369,6 +369,7 @@ body {
 }
 
 .smj-aktion-karte {
+	position: relative;
 	display: grid;
 	grid-template-columns: minmax(140px, 38%) minmax(0, 1fr);
 	overflow: hidden;
@@ -400,6 +401,37 @@ body {
 .smj-aktion-karte__titel {
 	margin: 0;
 	font-size: 1.6rem;
+}
+
+/* Die ganze Anmeldekarte ist klickbar (wie die Beitragskarten). */
+.smj-aktion-karte__titel a::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+}
+
+.smj-aktion-karte .smj-button {
+	position: relative;
+	z-index: 2;
+}
+
+.smj-aktion-karte {
+	transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.smj-aktion-karte:hover {
+	box-shadow: 0 12px 28px rgba(0, 30, 60, 0.1);
+	transform: translateY(-2px);
+}
+
+.smj-aktion-karte:focus-within {
+	outline: 3px solid var(--smj-sky);
+	outline-offset: 3px;
+}
+
+.smj-aktion-karte__titel a:focus-visible {
+	outline: none;
 }
 
 .smj-aktion-karte__titel a {
@@ -553,7 +585,9 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
 	.smj-karte,
-	.smj-karte:hover {
+	.smj-karte:hover,
+	.smj-aktion-karte,
+	.smj-aktion-karte:hover {
 		transition: none;
 		transform: none;
 	}
