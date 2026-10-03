@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+  <rect width="400" height="300" fill="#004E89"/>
+  <rect width="400" height="300" fill="#0B2E4F" opacity="0.35"/>
+  <g fill="none" stroke="#2F79B5" stroke-linecap="round" stroke-width="9" opacity="0.9">
+    <path d="M128 300 C96 238 92 168 128 116 C158 72 200 46 236 40 C262 62 280 86 290 112"/>
+    <path d="M160 300 C134 248 132 196 160 158 C182 128 210 108 236 102 C254 118 266 136 272 154"/>
+    <path d="M190 300 C172 262 170 228 188 204 C202 186 220 174 236 170 C248 180 254 190 258 200"/>
+  </g>
+  <text x="300" y="232" font-family="Georgia, serif" font-style="italic" font-size="44" fill="#6FA6D6" opacity="0.9" text-anchor="middle">SMJ</text>
+</svg>

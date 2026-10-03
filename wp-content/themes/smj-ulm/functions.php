@@ -23,7 +23,7 @@ add_action( 'wp_enqueue_scripts', 'smj_theme_assets' );
  */
 function smj_theme_setup() {
 	add_theme_support( 'editor-styles' );
-	add_editor_style( 'assets/css/theme.css' );
+	add_editor_style( array( 'assets/css/theme.css', 'assets/css/inhalte.css' ) );
 	add_theme_support( 'responsive-embeds' );
 	add_theme_support( 'custom-logo' );
 }
@@ -33,6 +33,7 @@ function smj_theme_setup() {
  */
 function smj_theme_assets() {
 	wp_enqueue_style( 'smj-theme', get_theme_file_uri( 'assets/css/theme.css' ), array(), SMJ_THEME_VERSION );
+	wp_enqueue_style( 'smj-inhalte', get_theme_file_uri( 'assets/css/inhalte.css' ), array( 'smj-theme' ), SMJ_THEME_VERSION );
 }
 
 add_action( 'after_setup_theme', 'smj_theme_menus' );
@@ -99,5 +100,68 @@ function smj_theme_navigation_aus_menue( $block ) {
  * @return string
  */
 function smj_theme_shortcode_in_parts( $content ) {
+	// Der Block legt den Shortcode in einen Absatz; Formulare darin wären ungültiges HTML.
+	$content = preg_replace( '#^\s*<p>\s*(.*?)\s*</p>\s*$#s', '$1', $content );
 	return do_shortcode( $content );
+}
+
+add_filter( 'render_block_core/post-title', 'smj_theme_doppelter_seitentitel', 5, 3 );
+
+/**
+ * Viele bestehende Seiten beginnen mit einer eigenen Überschrift ("Kreise in unserer Abteilung").
+ * Das alte Theme hat dort den Seitentitel ausgeblendet. Damit die Überschrift nicht doppelt
+ * erscheint, entfällt der Seitentitel, wenn der Inhalt mit einer Überschrift beginnt.
+ *
+ * @param string   $content Gerenderter Titel.
+ * @param array    $parsed  Geparster Block.
+ * @param WP_Block $block   Block-Instanz.
+ * @return string
+ */
+function smj_theme_doppelter_seitentitel( $content, $parsed, $block ) {
+	$post_id = (int) ( $block->context['postId'] ?? 0 );
+	if ( ! is_page() || get_queried_object_id() !== $post_id ) {
+		return $content;
+	}
+	foreach ( parse_blocks( (string) get_post_field( 'post_content', $post_id ) ) as $erster ) {
+		if ( empty( $erster['blockName'] ) ) {
+			continue;
+		}
+		$ist_ueberschrift = 'core/heading' === $erster['blockName']
+			|| ( 'core/html' === $erster['blockName'] && preg_match( '/^\s*<h[12]\b/i', $erster['innerHTML'] ) );
+		return $ist_ueberschrift ? '' : $content;
+	}
+	return $content;
+}
+
+add_filter( 'render_block_core/post-title', 'smj_theme_galerie_titel', 10, 3 );
+
+/**
+ * Zeltlager-Galerien in Übersichten: "Zeltlager Bilder 2026: Asterix und Obelix" wird zu
+ * Jahreszahl und Lagerthema aufgeteilt, damit die Kacheln das Jahr groß zeigen können.
+ *
+ * @param string   $content Gerenderter Titel.
+ * @param array    $parsed  Geparster Block.
+ * @param WP_Block $block   Block-Instanz.
+ * @return string
+ */
+function smj_theme_galerie_titel( $content, $parsed, $block ) {
+	$post_id = $block->context['postId'] ?? 0;
+	$ist_hauptbeitrag = is_singular() && get_queried_object_id() === (int) $post_id;
+	if ( ! $post_id || $ist_hauptbeitrag || ! has_category( 'zetlager-galerie', $post_id ) ) {
+		return $content;
+	}
+	if ( ! preg_match( '/^\s*Zeltlager[- ]?Bilder\s+(\d{4})\s*[:–-]\s*(.+)$/u', wp_strip_all_tags( get_the_title( $post_id ) ), $m ) ) {
+		return $content;
+	}
+	// Text bleibt vollständig lesbar ("Zeltlager Bilder 2026: …"); nur die Galerie-Kacheln
+	// blenden per CSS "Zeltlager Bilder" aus und zeigen das Jahr groß.
+	$inner = '<span class="smj-galerie-titel__vor">Zeltlager Bilder </span>'
+		. '<span class="smj-galerie-titel__jahr">' . esc_html( $m[1] ) . '</span>'
+		. '<span class="smj-galerie-titel__trenner">: </span>'
+		. '<span class="smj-galerie-titel__thema">' . esc_html( trim( $m[2] ) ) . '</span>';
+
+	if ( preg_match( '#<a\b[^>]*>.*?</a>#s', $content ) ) {
+		return preg_replace( '#(<a\b[^>]*>).*?(</a>)#s', '$1' . str_replace( '$', '\\$', $inner ) . '$2', $content, 1 );
+	}
+	return preg_replace( '#(<h[1-6]\b[^>]*>).*?(</h[1-6]>)#s', '$1' . str_replace( '$', '\\$', $inner ) . '$2', $content, 1 );
 }

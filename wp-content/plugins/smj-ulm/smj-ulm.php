@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       SMJ Ulm – Funktionen
  * Description:       Anmeldungen mit automatischem Anmeldeschluss und Datenlöschung, Terminliste aus dem SMJ-Kalender, Newsletter-Eintrag nach Anmeldung.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Requires at least: 6.5
  * Requires PHP:      8.0
  * Author:            SMJ Ulm/Alb/Donau
@@ -14,7 +14,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'SMJ_ULM_VERSION', '1.0.0' );
+define( 'SMJ_ULM_VERSION', '1.1.0' );
 define( 'SMJ_ULM_FILE', __FILE__ );
 define( 'SMJ_ULM_DIR', plugin_dir_path( __FILE__ ) );
 define( 'SMJ_ULM_URL', plugin_dir_url( __FILE__ ) );
@@ -29,6 +29,7 @@ require_once SMJ_ULM_DIR . 'includes/loeschung.php';
 require_once SMJ_ULM_DIR . 'includes/newsletter.php';
 require_once SMJ_ULM_DIR . 'includes/termine.php';
 require_once SMJ_ULM_DIR . 'includes/bloecke.php';
+require_once SMJ_ULM_DIR . 'includes/uebernahme.php';
 
 register_activation_hook( __FILE__, 'smj_ulm_activate' );
 register_deactivation_hook( __FILE__, 'smj_ulm_deactivate' );

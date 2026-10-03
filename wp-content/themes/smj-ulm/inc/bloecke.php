@@ -130,7 +130,24 @@ function smj_theme_render_diashow( $attributes ) {
 	);
 
 	if ( ! $bilder ) {
-		return '<div ' . $wrapper . '><div class="smj-diashow__leer">Bilder für die Diashow im Editor auswählen.</div></div>';
+		// Noch keine Bilder ausgewählt: die Beitragsbilder der neuesten Beiträge zeigen.
+		$bilder = array_map(
+			static fn( $id ) => array( 'id' => (int) get_post_thumbnail_id( $id ) ),
+			get_posts(
+				array(
+					'post_type'      => 'post',
+					'posts_per_page' => 5,
+					'fields'         => 'ids',
+					'meta_key'       => '_thumbnail_id',
+				)
+			)
+		);
+		$bilder = array_values( array_filter( $bilder, static fn( $b ) => $b['id'] && wp_attachment_is_image( $b['id'] ) ) );
+	}
+	if ( ! $bilder ) {
+		return '<div ' . $wrapper . '><div class="smj-diashow__leer">'
+			. ( ( defined( 'REST_REQUEST' ) && REST_REQUEST ) ? 'Bilder für die Diashow in den Block-Einstellungen auswählen.' : '' )
+			. '</div></div>';
 	}
 
 	$slides = '';
@@ -166,7 +183,18 @@ function smj_theme_render_diashow( $attributes ) {
  */
 function smj_theme_render_countdown( $attributes ) {
 	$ziel = $attributes['ziel'] ?? '';
+	if ( ! $ziel ) {
+		// Ohne eigenes Datum gilt der Countdown aus dem alten Theme (Customizer "Countdown").
+		$alt  = get_option( 'theme_mods_understrap_smj_ulm' );
+		$ziel = is_array( $alt ) && ! empty( $alt['understrap_countdown'] ) ? (string) $alt['understrap_countdown'] : '';
+	}
+	$ziel = str_replace( ' ', 'T', substr( $ziel, 0, 16 ) );
 	$zeit = $ziel ? DateTimeImmutable::createFromFormat( 'Y-m-d\TH:i', $ziel, wp_timezone() ) : false;
+
+	// Abgelaufene Countdowns verschwinden von der Website, bis ein neues Datum eingetragen ist.
+	if ( $zeit && $zeit->getTimestamp() <= time() && ! ( defined( 'REST_REQUEST' ) && REST_REQUEST ) ) {
+		return '';
+	}
 	if ( ! $zeit ) {
 		return ( defined( 'REST_REQUEST' ) && REST_REQUEST )
 			? '<p class="smj-countdown__leer">Datum und Uhrzeit für den Countdown in den Block-Einstellungen eintragen.</p>'

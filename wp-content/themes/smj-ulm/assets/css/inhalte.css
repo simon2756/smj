@@ -1,0 +1,476 @@
+/**
+ * Bestehende Inhalte aus dem alten Theme im neuen Design.
+ *
+ * Viele Seiten (Gruppen, Kreise, ITE …) enthalten Markup mit Bootstrap-Klassen
+ * (row, col-sm-4, card, btn …), das früher das Understrap-Theme gestaltet hat.
+ * Hier wird genau dieser Teil von Bootstrap nachgebildet – im Stil der neuen Seite,
+ * damit die Inhalte ohne Umbau wieder als Raster und Karten erscheinen.
+ */
+
+/* ---------- Raster: row / col-* ---------- */
+
+.wp-block-post-content .row,
+.entry-content .row {
+	--smj-gutter: 1.5rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--smj-gutter);
+	margin-block: 1.5rem;
+}
+
+.wp-block-post-content .row.g-3 {
+	--smj-gutter: 1.5rem;
+}
+
+.wp-block-post-content .row > * {
+	box-sizing: border-box;
+	flex: 1 1 100%;
+	max-width: 100%;
+	min-width: 0;
+	margin: 0;
+}
+
+@media (min-width: 576px) {
+	.wp-block-post-content .row > .col-sm-2 { flex: 0 0 calc((100% - 5 * var(--smj-gutter)) / 6); }
+	.wp-block-post-content .row > .col-sm-3 { flex: 0 0 calc((100% - 3 * var(--smj-gutter)) / 4); }
+	.wp-block-post-content .row > .col-sm-4 { flex: 0 0 calc((100% - var(--smj-gutter)) / 2); }
+	.wp-block-post-content .row > .col-sm-6 { flex: 0 0 calc((100% - var(--smj-gutter)) / 2); }
+}
+
+@media (min-width: 900px) {
+	.wp-block-post-content .row > .col-sm-4,
+	.wp-block-post-content .row > .col-md-4,
+	.wp-block-post-content .row > .col-lg-4 { flex: 0 0 calc((100% - 2 * var(--smj-gutter)) / 3); }
+}
+
+/* ---------- Karten ---------- */
+
+.wp-block-post-content .card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow: hidden;
+	margin: 0;
+	padding: 0 !important;
+	background: #fff;
+	border: 1px solid var(--smj-line);
+	border-radius: var(--smj-radius);
+	box-shadow: none;
+	transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.wp-block-post-content .card:hover {
+	box-shadow: 0 14px 32px rgba(0, 30, 60, 0.12);
+	transform: translateY(-2px);
+}
+
+.wp-block-post-content .card > .wp-block-group__inner-container {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.wp-block-post-content .card-img-top,
+.wp-block-post-content .card > img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	height: auto;
+	margin: 0 !important;
+	object-fit: cover;
+	background: var(--smj-sky-light);
+}
+
+.wp-block-post-content .card-header {
+	padding: 1.1rem 1.4rem 0;
+	background: none;
+	border: 0;
+}
+
+.wp-block-post-content .card-header :is(h1, h2, h3, h4, h5, h6) {
+	margin: 0;
+	font-family: var(--smj-display);
+	font-size: 1.4rem;
+	font-weight: 800;
+	line-height: 1.2;
+	color: var(--smj-ink);
+}
+
+.wp-block-post-content .card-body {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+	padding: 0.75rem 1.4rem 1.4rem;
+}
+
+/* "Gruppenleiter: Robin Heß": Bezeichnung dunkel, Wert gedämpft */
+.wp-block-post-content .card-text {
+	margin: 0;
+	font-size: 0.975rem;
+	line-height: 1.45;
+	color: var(--smj-muted);
+}
+
+.wp-block-post-content .card-text > strong {
+	font-weight: 700;
+	color: var(--smj-ink);
+}
+
+/* Beitragskarten aus Abfrage-Blöcken (z. B. ITE News) */
+.wp-block-post-content .card .img-card,
+.wp-block-post-content .card .wp-block-post-featured-image {
+	margin: 0 !important;
+	aspect-ratio: 16 / 10;
+	overflow: hidden;
+	background: var(--smj-sky-light);
+}
+
+.wp-block-post-content .card .img-card img,
+.wp-block-post-content .card .wp-block-post-featured-image img {
+	width: 100%;
+	height: 100% !important;
+	object-fit: cover;
+	display: block;
+	transition: transform 0.4s ease;
+}
+
+.wp-block-post-content .card:hover .wp-block-post-featured-image img {
+	transform: scale(1.04);
+}
+
+.wp-block-post-content .card-content {
+	display: flex;
+	flex-direction: column;
+	gap: 0.45rem;
+	margin: 0 !important;
+	padding: 1.1rem 1.25rem 1.4rem;
+}
+
+.wp-block-post-content .card-content > .wp-block-group__inner-container {
+	display: flex;
+	flex-direction: column;
+	gap: 0.45rem;
+}
+
+.wp-block-post-content .card-content > * ,
+.wp-block-post-content .card-content > .wp-block-group__inner-container > * {
+	margin: 0 !important;
+	max-width: none;
+}
+
+.wp-block-post-content .card .wp-block-post-title {
+	font-family: var(--smj-display);
+	font-size: 1.2rem;
+	font-weight: 700 !important;
+	line-height: 1.25;
+}
+
+.wp-block-post-content .card .wp-block-post-title a {
+	color: var(--smj-ink);
+	text-decoration: none;
+}
+
+.wp-block-post-content .card .wp-block-post-title a:hover {
+	color: var(--smj-navy);
+}
+
+/* Abfrage-Raster mit 4 bzw. 3 Spalten responsiv */
+.wp-block-post-content .wp-block-post-template.is-layout-grid {
+	gap: 1.5rem;
+}
+
+@media (max-width: 1000px) {
+	.wp-block-post-content .wp-block-post-template.columns-4.is-layout-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 600px) {
+	.wp-block-post-content .wp-block-post-template.is-layout-grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+/* ---------- Kein Bild vorhanden ----------
+ * Das alte Platzhalterbild "Bild kommt" und fehlende Beitragsbilder werden durch eine
+ * gestaltete Fläche mit dem SMJ-Zeichen ersetzt.
+ */
+
+.wp-block-post-content .card > img[src*="bild_kommt"] {
+	display: none;
+}
+
+.wp-block-post-content .card:is(:not(:has(img)), :has(> img[src*="bild_kommt"])) > .card-header::before,
+.wp-block-post-content .card .wp-block-post-featured-image:not(:has(img)),
+.smj-karte:not(:has(.wp-block-post-featured-image img)) > .smj-karte__body::before {
+	content: "";
+	display: block;
+	aspect-ratio: 16 / 10;
+	background: var(--smj-navy) url("../images/platzhalter.svg") center / cover no-repeat;
+}
+
+.wp-block-post-content .card:is(:not(:has(img)), :has(> img[src*="bild_kommt"])) > .card-header::before {
+	aspect-ratio: 4 / 3;
+	margin: -1.1rem -1.4rem 1.1rem;
+}
+
+.smj-karte:not(:has(.wp-block-post-featured-image img)) > .smj-karte__body::before {
+	margin: -1.25rem -1.4rem 0.75rem;
+}
+
+/* Beitragskarte ohne Beitragsbild */
+.wp-block-post-content .card:not(:has(img)) > .card-content::before {
+	content: "";
+	display: block;
+	aspect-ratio: 16 / 10;
+	margin: -1.1rem -1.25rem 0.75rem;
+	background: var(--smj-navy) url("../images/platzhalter.svg") center / cover no-repeat;
+}
+
+/* ---------- Buttons ---------- */
+
+.wp-block-post-content .btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	min-height: 48px;
+	padding: 0.75rem 1.5rem;
+	border: 2px solid var(--smj-navy);
+	border-radius: 999px;
+	background: var(--smj-navy);
+	color: #fff;
+	font-weight: 700;
+	line-height: 1.2;
+	text-align: center;
+	text-decoration: none;
+	transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.wp-block-post-content .btn:hover,
+.wp-block-post-content .btn:focus-visible {
+	background: var(--smj-navy-dark);
+	border-color: var(--smj-navy-dark);
+	color: #fff;
+}
+
+.wp-block-post-content .btn-lg {
+	min-height: 56px;
+	font-size: 1.0625rem;
+}
+
+.wp-block-post-content .btn-outline-secondary,
+.wp-block-post-content .btn-outline-primary {
+	background: transparent;
+	color: var(--smj-navy);
+}
+
+/* ---------- Bootstrap-Hilfsklassen, die in Inhalten vorkommen ---------- */
+
+.wp-block-post-content .w-100 { width: 100%; }
+.wp-block-post-content .h-100 { height: 100%; }
+.wp-block-post-content .m-0 { margin: 0; }
+.wp-block-post-content .mt-0 { margin-top: 0; }
+.wp-block-post-content .mb-0 { margin-bottom: 0; }
+.wp-block-post-content .mb-4 { margin-bottom: 1.5rem; }
+.wp-block-post-content .mt-5 { margin-top: 3rem; }
+.wp-block-post-content .mb-5 { margin-bottom: 3rem; }
+.wp-block-post-content .text-center { text-align: center; }
+.wp-block-post-content .rounded { border-radius: var(--smj-radius); }
+.wp-block-post-content .shadow-lg { box-shadow: none; }
+
+/* Farben der alten Palette */
+.has-blue-color { color: var(--smj-navy) !important; }
+.has-blue-background-color { background-color: var(--smj-navy) !important; }
+.has-secondary-color { color: var(--smj-navy) !important; }
+.has-secondary-background-color { background-color: var(--smj-navy) !important; }
+
+/* Trennlinien */
+.wp-block-post-content hr.wp-block-separator {
+	margin-block: 3rem;
+	border: 0;
+	border-top: 1px solid var(--smj-line);
+	box-shadow: none;
+}
+
+/* ---------- Bildergalerien ---------- */
+
+.wp-block-gallery.has-nested-images {
+	gap: 0.75rem;
+}
+
+.wp-block-gallery.has-nested-images figure.wp-block-image {
+	overflow: hidden;
+	border-radius: 14px;
+}
+
+.wp-block-gallery.has-nested-images figure.wp-block-image img {
+	transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+.wp-block-gallery.has-nested-images figure.wp-block-image:hover img {
+	transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wp-block-post-content .card,
+	.wp-block-post-content .card:hover,
+	.wp-block-post-content .card img,
+	.wp-block-gallery img {
+		transition: none !important;
+		transform: none !important;
+	}
+}
+
+/* ---------- Zeltlager: Übersicht der Bildergalerien ----------
+ * Greift bei jedem Abfrage-Block, der Beiträge aus "Zeltlager Galerie" zeigt:
+ * das neueste Lager groß, ältere als Kacheln, Jahr und Thema über dem Bild.
+ */
+
+.wp-block-post-template.is-layout-grid:has(> .category-zetlager-galerie > .wp-block-post-featured-image) {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	grid-auto-rows: minmax(220px, auto);
+	gap: 1.25rem;
+}
+
+.wp-block-post-template > .category-zetlager-galerie:has(> .wp-block-post-featured-image) {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	min-height: 240px;
+	margin: 0;
+	overflow: hidden;
+	border-radius: 24px;
+	background: var(--smj-navy-dark);
+	isolation: isolate;
+}
+
+.wp-block-post-template > .category-zetlager-galerie:first-child:has(> .wp-block-post-featured-image) {
+	grid-column: span 2;
+	grid-row: span 2;
+	min-height: 480px;
+}
+
+.category-zetlager-galerie > .wp-block-post-featured-image {
+	position: absolute;
+	inset: 0;
+	z-index: -2;
+	margin: 0;
+	height: 100% !important;
+	aspect-ratio: auto !important;
+}
+
+.category-zetlager-galerie > .wp-block-post-featured-image a,
+.category-zetlager-galerie > .wp-block-post-featured-image img {
+	display: block;
+	width: 100%;
+	height: 100% !important;
+	object-fit: cover;
+	transition: transform 0.6s ease;
+}
+
+.category-zetlager-galerie:hover > .wp-block-post-featured-image img {
+	transform: scale(1.05);
+}
+
+/* Lesbarkeit: abgedunkelt nur dort, wo Text steht */
+.wp-block-post-template > .category-zetlager-galerie:has(> .wp-block-post-featured-image)::before {
+	content: "";
+	position: absolute;
+	inset: 35% 0 0;
+	z-index: -1;
+	background: linear-gradient(to bottom, rgba(11, 46, 79, 0) 0%, rgba(11, 46, 79, 0.92) 85%);
+	pointer-events: none;
+}
+
+.category-zetlager-galerie > .wp-block-post-title {
+	margin: 0;
+	padding: 1.25rem 1.4rem 1.3rem;
+	font-size: 1.15rem;
+	line-height: 1.25;
+}
+
+.category-zetlager-galerie > .wp-block-post-title a {
+	display: flex;
+	flex-direction: column;
+	gap: 0.15rem;
+	color: #fff;
+	text-decoration: none;
+}
+
+/* Die ganze Kachel ist klickbar */
+.category-zetlager-galerie > .wp-block-post-title a::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+}
+
+.category-zetlager-galerie > .wp-block-post-title :is(.smj-galerie-titel__vor, .smj-galerie-titel__trenner) {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+.category-zetlager-galerie > .wp-block-post-title .smj-galerie-titel__jahr {
+	font-family: var(--smj-display);
+	font-size: 2.6rem;
+	font-weight: 800;
+	line-height: 1;
+	letter-spacing: -0.02em;
+	color: #f5b183;
+}
+
+.category-zetlager-galerie > .wp-block-post-title .smj-galerie-titel__thema {
+	font-family: var(--wp--preset--font-family--body);
+	font-weight: 700;
+}
+
+.wp-block-post-template > .category-zetlager-galerie:first-child:has(> .wp-block-post-featured-image) .wp-block-post-title .smj-galerie-titel__jahr {
+	font-size: clamp(3rem, 7vw, 5rem);
+}
+
+.wp-block-post-template > .category-zetlager-galerie:first-child:has(> .wp-block-post-featured-image) .wp-block-post-title {
+	padding: 2rem;
+	font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+.wp-block-post-template > .category-zetlager-galerie:has(> .wp-block-post-featured-image):focus-within {
+	outline: 3px solid var(--smj-sky);
+	outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+	.wp-block-post-template.is-layout-grid:has(> .category-zetlager-galerie > .wp-block-post-featured-image) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 600px) {
+	.wp-block-post-template.is-layout-grid:has(> .category-zetlager-galerie > .wp-block-post-featured-image) {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.wp-block-post-template > .category-zetlager-galerie:first-child:has(> .wp-block-post-featured-image) {
+		grid-column: auto;
+		grid-row: auto;
+		min-height: 340px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.category-zetlager-galerie img {
+		transition: none !important;
+		transform: none !important;
+	}
+}
+
+/* Fließtext auf breiten Seiten in angenehmer Zeilenlänge, bündig mit dem Seitentitel */
+.smj-seite .wp-block-post-content > :is(p, ul, ol, h2, h3, h4, blockquote) {
+	max-width: 860px;
+	margin-left: 0 !important;
+}

@@ -667,7 +667,7 @@ body {
 	margin-block: var(--wp--preset--spacing--30) var(--wp--preset--spacing--50) !important;
 	padding: clamp(1.5rem, 4vw, 3rem);
 	border-radius: 32px;
-	background: var(--smj-navy-dark);
+	background: var(--smj-navy);
 	color: #fff;
 }
 
@@ -701,7 +701,7 @@ body {
 	align-items: center;
 	padding: 1.4rem 0.5rem;
 	border-radius: var(--smj-radius);
-	background: #143d63;
+	background: rgba(255, 255, 255, 0.1);
 }
 
 .smj-countdown__zahl {
@@ -902,7 +902,7 @@ body {
 .wpcf7-form input[type="date"],
 .wpcf7-form select,
 .wpcf7-form textarea,
-.tnp-subscription-minimal input[type="email"],
+
 .wp-block-search__input {
 	box-sizing: border-box;
 	width: 100%;
@@ -922,7 +922,7 @@ body {
 }
 
 .wpcf7-form :is(input, select, textarea):focus,
-.tnp-subscription-minimal input[type="email"]:focus,
+
 .wp-block-search__input:focus {
 	outline: 3px solid #8db5d8;
 	outline-offset: 1px;
@@ -1005,62 +1005,202 @@ body {
 
 /* ---------- Fußbereich ---------- */
 
-.smj-fuss__titel {
-	margin: 0 0 0.75rem;
-	font-size: 1.0625rem;
-	font-family: var(--wp--preset--font-family--body);
+.smj-fuss {
+	color: #dbe8f3;
+}
+
+.smj-fuss a {
+	color: #fff;
+}
+
+/* Newsletter-Kasten */
+.smj-newsletter {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+	gap: 1.5rem 3rem;
+	align-items: center;
+	padding: clamp(1.5rem, 4vw, 2.5rem);
+	border-radius: 28px;
+	background: #143d63;
+}
+
+/* Der Shortcode-Block legt das Formular in einen Absatz */
+.smj-newsletter > p {
+	margin: 0;
+}
+
+.smj-newsletter__text > * {
+	margin: 0;
+}
+
+.smj-newsletter__text p {
+	margin-top: 0.5rem;
+	color: #bfd6ea;
+}
+
+.smj-newsletter__titel {
+	color: #fff;
+	font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.smj-fuss .tnp-subscription-minimal {
+	margin: 0;
+	max-width: none;
+}
+
+.smj-fuss .tnp-subscription-minimal form {
+	white-space: normal;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	gap: 0.6rem;
+	text-align: left !important;
+}
+
+.smj-fuss .tnp-subscription-minimal input.tnp-email {
+	box-sizing: border-box;
+	width: 100%;
+	max-width: none;
+	min-width: 0;
+	min-height: 52px;
+	margin: 0;
+	padding: 0.75rem 1.1rem;
+	border: 1px solid transparent;
+	border-radius: 999px;
+	background: #fff;
+	color: var(--smj-ink);
+	font: inherit;
+	font-size: 1rem;
+}
+
+.smj-fuss .tnp-subscription-minimal input.tnp-email:focus {
+	outline: 3px solid #f5b183;
+	outline-offset: 2px;
+}
+
+.smj-fuss .tnp-subscription-minimal .tnp-submit {
+	box-sizing: border-box;
+	width: auto;
+	min-height: 52px;
+	margin: 0;
+	padding: 0 1.6rem;
+	border: 0;
+	border-radius: 999px;
+	background: var(--smj-fire);
+	color: #fff;
+	font: inherit;
 	font-weight: 700;
-	letter-spacing: 0;
+	cursor: pointer;
+}
+
+.smj-fuss .tnp-subscription-minimal .tnp-submit:hover,
+.smj-fuss .tnp-subscription-minimal .tnp-submit:focus-visible {
+	background: #96400f;
+}
+
+.smj-fuss .tnp-subscription-minimal .tnp-privacy-field {
+	grid-column: 1 / -1;
+	margin: 0.25rem 0 0;
+	padding: 0;
+	text-align: left;
+	font-size: 0.9rem;
+}
+
+.smj-fuss .tnp-privacy-field label {
+	display: flex;
+	gap: 0.6rem;
+	align-items: flex-start;
+	color: #bfd6ea;
+	cursor: pointer;
+}
+
+.smj-fuss .tnp-privacy-field input {
+	flex-shrink: 0;
+	width: 18px;
+	height: 18px;
+	margin: 0.15rem 0 0;
+	accent-color: #f5b183;
+}
+
+.smj-fuss .tnp-privacy-field a {
+	min-width: 0;
+	overflow-wrap: anywhere;
+	color: #dbe8f3;
+}
+
+/* Marke, Links */
+.smj-fuss__haupt {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1.5rem 3rem;
+	margin-top: var(--wp--preset--spacing--50) !important;
+}
+
+.smj-fuss__marke {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.smj-fuss__marke p {
+	margin: 0;
+	font-weight: 600;
+	line-height: 1.35;
+	color: #fff;
+}
+
+.smj-logo--fuss img {
+	height: 64px;
+	filter: brightness(0) invert(1);
 }
 
 .smj-fuss__nav .wp-block-navigation-item__content {
-	color: var(--smj-muted);
+	color: #dbe8f3;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.smj-fuss__nav .wp-block-navigation-item__content:hover,
+.smj-fuss__nav .wp-block-navigation-item__content:focus-visible {
+	color: #fff;
+	text-decoration: underline;
+}
+
+.smj-fuss__extern {
+	margin: 0;
+}
+
+.smj-fuss__extern a {
+	display: inline-flex;
+	padding: 0.6rem 1.1rem;
+	border: 1px solid rgba(255, 255, 255, 0.35);
+	border-radius: 999px;
+	font-weight: 600;
 	text-decoration: none;
 }
 
-.smj-fuss__nav .wp-block-navigation-item__content:hover {
-	color: var(--smj-navy);
-	text-decoration: underline;
+.smj-fuss__extern a:hover {
+	background: rgba(255, 255, 255, 0.1);
 }
 
 .smj-fuss__copy {
 	margin-top: var(--wp--preset--spacing--40) !important;
 	padding-top: 1.25rem;
-	border-top: 1px solid #eef1f5;
+	border-top: 1px solid rgba(255, 255, 255, 0.15);
+	color: #8fb0cc;
 }
 
-.smj-fuss .tnp-subscription-minimal form {
-	display: flex;
-	gap: 0.5rem;
+@media (max-width: 800px) {
+	.smj-newsletter {
+		grid-template-columns: minmax(0, 1fr);
+	}
 }
 
-.smj-fuss .tnp-subscription-minimal input.tnp-email {
-	flex: 1;
-	min-width: 0;
-	width: auto;
-	min-height: 48px;
-	padding: 0.7rem 0.9rem;
-	border: 1px solid #c9d3df;
-	border-radius: 12px;
-	background: #fff;
-	font: inherit;
-}
-
-.smj-fuss .tnp-subscription-minimal input.tnp-submit {
-	min-height: 48px;
-	padding: 0 1.1rem;
-	border: 0;
-	border-radius: 12px;
-	background: var(--smj-navy);
-	color: #fff;
-	font: inherit;
-	font-weight: 700;
-	cursor: pointer;
-	width: auto;
-}
-
-.smj-fuss .tnp-subscription-minimal input.tnp-submit:hover {
-	background: var(--smj-navy-dark);
+@media (max-width: 480px) {
+	.smj-fuss .tnp-subscription-minimal form {
+		grid-template-columns: minmax(0, 1fr);
+	}
 }
 
 /* ---------- Suche, Seitennavigation ---------- */
