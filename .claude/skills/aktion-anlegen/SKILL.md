@@ -79,7 +79,10 @@ und das Skript mit `<scratchpad>/venv/bin/python` starten. Ergebnis ansehen (Rea
 1600×1000 für die neue. Hinweis: als neue Datei hochladen, in WordPress **nicht** zuschneiden.
 Ohne Bild: Format kurz nennen (5:2 alt, 16:10 neu, Motiv mittig).
 
-**E. Checkliste zum Schluss** (kurz): Testanmeldung mit eigener Mail → Mail angekommen, PDF im Anhang,
+**E. Kalendertermin** – die Aktion als .ics für den Nextcloud-Kalender erzeugen und schicken, wie im Skill
+`termine-eintragen` beschrieben (Kategorie meist `Abteilung`, Beschreibung „Anmeldung über smj-ulm.de“).
+
+**F. Checkliste zum Schluss** (kurz): Testanmeldung mit eigener Mail → Mail angekommen, PDF im Anhang,
 Eintrag in Advanced CF7 DB sichtbar → Testeintrag dort löschen.
 
 ## Regeln
