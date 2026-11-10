@@ -1,0 +1,46 @@
+<label>Vorname [text* Vorname placeholder "Vorname"]</label>
+<label>Nachname [text* Nachname placeholder "Nachname"]</label>
+<label>Straße mit Hausnummer [text* StrasseHausnummer placeholder "Straße mit Hausnummer"]</label>
+<label>Postleitzahl [text* Postleitzahl placeholder "Postleitzahl"]</label>
+<label>Ort [text* Ort placeholder "Ort"]</label>
+<label>Mail (dort erhältst du die Bestätigungsmail) [email* Mail placeholder "Mail"]</label>
+<label>Geburtsdatum [date* Geburtsdatum]</label>
+
+<label> </label>
+
+<label>Ansprechpartner für Notfälle (Name) [text* Ansprechpartner placeholder "Ansprechpartner"]</label>
+<label>Telefonnummer Ansprechpartner [tel* TelefonAnsprechpartner placeholder "Telefonnummer Ansprechpartner"]</label>
+
+<label> </label>
+{{ZUSATZFELDER}}
+<label>Beitrag: <strong>{{BEITRAG}}</strong></label>
+
+<label>Essen:</label>
+[checkbox Vegetarisch use_label_element exclusive default:1 "Nicht Vegetarisch" "Vegetarisch."]
+
+<label>Ich möchte auch über weitere Veranstaltungen der Schönstattjugend per Mail informiert werden:</label>
+[checkbox Newsletter use_label_element exclusive default:1 "ja" "nein."]
+
+<label>Was wir sonst noch wissen sollten:
+[textarea Sonstiges placeholder "Was wir sonst noch wissen sollten (tägliche Medikamente, Allergien o. ä.)"]
+</label>
+
+<label>Fotografien meines Kindes dürfen in angemessenem Maße für interne Zwecke, Social Media, sowie für den Internetauftritt der SMJ Abteilung Ulm/Alb/Donau (www.smj-ulm.de) sowie MJF Abteilung Donaumark (www.mjf-ulm.de) verwendet werden:</label>
+[checkbox Foto use_label_element exclusive default:1 "erlaubt" "nicht erlaubt."]
+
+<label>Personenbezogene Daten werden von uns nur dann und nur in dem Umfang erhoben, wie Sie sie uns mit Ihrer Kenntnis selbst zur Verfügung stellen. Sie haben jederzeit ein Widerrufsrecht hinsichtlich einer erteilten Einwilligung. Eine Angabe der Verarbeitungszwecke erfolgt an den entsprechenden Stellen unserer Websites und unterliegt keiner nachträglichen Änderung. Eine Weitergabe der Daten an Dritte erfolgt ohne Ihre Einwilligung nur dann, wenn wir hierzu gesetzlich verpflichtet sind:</label>
+[checkbox* Datenschutz use_label_element exclusive "zugestimmt"]
+
+<label>Für den Fall, dass mein Kind während der Veranstaltung einen Schaden erleidet oder Dritten zufügt, stelle ich die Aufsichtspersonen und den Veranstalter von jeder Verantwortung frei, sofern es sich um einen Unfall handelt oder die Anweisungen der Leiter missachtet wurden:</label>
+[checkbox* Schadensfreispruch use_label_element exclusive "zugestimmt"]
+
+<label>Während der Veranstaltung kann es zu medizinischen Zwischenfällen kommen.
+Ich bin damit einverstanden, dass das Betreuungspersonal sowie geschulte Sanitäter Erste Hilfe im Rahmen der gesetzlichen Vorgaben leisten dürfen. Darüber hinaus bin ich einverstanden, dass bei meinem Kind Zecken zeitnah entfernt werden dürfen, um Infektionen (z. B. Borreliose oder FSME) entgegenzuwirken.</label>
+[checkbox* Erste-Hilfe use_label_element exclusive "zugestimmt"]
+
+<label>Die Anmeldung ist erst mit der Überweisung des Teilnahmebeitrags wirksam:</label>
+[checkbox* Ueberweisung use_label_element "zugestimmt"]
+
+[cf7ic]
+
+[submit "Senden"]

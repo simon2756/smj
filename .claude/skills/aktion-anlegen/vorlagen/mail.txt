@@ -1,0 +1,34 @@
+Hallo liebe Eltern,
+
+wir freuen uns sehr über die Anmeldung Ihres Kindes [Vorname] [Nachname] zum {{AKTION}} ({{ZEITRAUM}}).
+
+Hiermit bestätigen wir Ihnen, dass die Anmeldung bei uns eingegangen ist und wir Ihre Daten gespeichert haben. Die Daten werden vertraulich durch die Ansprechperson {{KONTAKT_NAME}} behandelt und nach Ende der Veranstaltung von unserem Server gelöscht.
+
+Ein paar Tage vor der Veranstaltung erhalten Sie eine kurze (nicht vollständige) Packliste, was wir benötigen und was nicht.
+
+Hier senden wir Ihnen schon mal die Einverständniserklärung. Diese bitte ausgedruckt und unterschrieben zur Veranstaltung mitbringen.
+
+-------------------------------------------------------------------
+
+Teilnahmebeitrag: {{BEITRAG}}
+
+<strong>Konto: {{KONTOINHABER}}
+IBAN: {{IBAN}}
+{{BANK}}
+Verwendungszweck: {{VERWENDUNGSZWECK}} + [Vorname] [Nachname]</strong>
+
+Die Anmeldung ist erst mit der Überweisung des Teilnahmebeitrags wirksam!
+
+-------------------------------------------------------------------
+
+Sollten Sie vorab noch weitere Fragen haben, können Sie sich gerne an unseren Ansprechpartner {{KONTAKT_NAME}} wenden.
+
+{{KONTAKT_NAME}}
+Tel.: {{KONTAKT_TELEFON}}
+Mail: {{KONTAKT_MAIL}}
+
+{{SCHLUSSSATZ}}
+Das Betreuerteam {{JAHR}}
+
+<img src="{{LOGO_URL}}"
+     alt="Logo" width="450" style="max-width:100%;height:auto;display:block;">
