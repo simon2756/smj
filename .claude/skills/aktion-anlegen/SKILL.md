@@ -80,7 +80,7 @@ und das Skript mit `<scratchpad>/venv/bin/python` starten. Ergebnis ansehen (Rea
 Ohne Bild: Format kurz nennen (5:2 alt, 16:10 neu, Motiv mittig).
 
 **E. Kalendertermin** – die Aktion als .ics für den Nextcloud-Kalender erzeugen und schicken, wie im Skill
-`termine-eintragen` beschrieben (Kategorie meist `Abteilung`, Beschreibung „Anmeldung über smj-ulm.de“).
+`termine-eintragen` beschrieben (Kategorien `SMJ,Teilnehmer`, bei gemeinsamen Aktionen mit der Mädchenjugend `SMJ,MJF,Teilnehmer`; Beschreibung „Anmeldung über smj-ulm.de“).
 
 **F. Checkliste zum Schluss** (kurz): Testanmeldung mit eigener Mail → Mail angekommen, PDF im Anhang,
 Eintrag in Advanced CF7 DB sichtbar → Testeintrag dort löschen.
